@@ -109,8 +109,11 @@ pageHeaderHTML assets = do
 pageSidebarHTML :: Assets -> Html
 pageSidebarHTML assets = do
   H.div ! A.class_ "page-sidebar" 
-        ! customAttribute "x-show" "historyPaneOpen" $
-    return ()
+        ! customAttribute "x-show" "historyPaneOpen" $ do
+    H.div ! A.class_ "page-story-header" $ do
+      H.div ! A.class_ "page-story-label" $ "story of"
+      H.div ! A.class_ "page-story-selector" $ 
+        H.div ! A.class_ "page-story-selector-name" $ "Build Hello World"
 
 
 -- | Page footer HTML
