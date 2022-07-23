@@ -1,0 +1,54 @@
+
+@import 'vars.css';
+
+
+.comp-form-field {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.comp-form-field:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.comp-form-field label {
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #12171F;
+}
+
+.comp-form-field input {
+    height: 36px;
+
+    box-shadow: none;
+    border: 1px dashed #D2D7DF;
+    border-bottom: 1px dashed #363A42;
+    border-radius: 2px;
+
+    background: #F2F7FF;
+    background: #F2F6FB;
+    padding: 0 12px;
+
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-family: "Ringside Regular SSm A", "Ringside Regular SSm B";
+    font-weight: 400;
+}
+
+
+.comp-form-field textarea {
+    outline: none;
+    font-family: "Ringside Regular SSm A", "Ringside Regular SSm B";
+    font-weight: 400;
+    border: 1px dashed #D2D7DF;
+    border-bottom: 1px dashed #363A42;
+    border-right: 1px dashed #363A42;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 12px;
+    background: #F2F7FF;
+    background: #F2F6FB;
+    min-height: 80px;
+}

@@ -1,0 +1,12 @@
+
+@import 'vars.css';
+
+
+.comp-program-manager {
+    padding: var(--comp-padding-vert) var(--comp-padding-horz);
+}
+
+.comp-program-manager-header {
+    display: flex;
+    flex-direction: row;
+}

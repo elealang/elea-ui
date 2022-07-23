@@ -1,0 +1,204 @@
+
+@import 'vars.css';
+
+/* Site-wide CSS                                                              */
+/* -------------------------------------------------------------------------- */
+
+html {
+    font-size: 90%;
+}
+
+input {border:0;outline:0;}
+input:focus {outline:none!important;}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    font-family: "Ringside Regular SSm A", "Ringside Regular SSm B";
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Page                                                                       */
+/* -------------------------------------------------------------------------- */
+
+.page {
+    position: relative;
+    height: 100vh;
+}
+
+/* Page Header                                                                */
+/* -------------------------------------------------------------------------- */
+
+.page-header {
+
+    height: 64px;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 0 40px;
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #E5ECF6;
+    box-shadow: 0px 3px 9px 5px #E5ECF645; 
+}
+
+.page-header .comp-view-switcher {
+    width: 34%;
+    align-self: center;
+}
+
+.page-title {
+    width: 32%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.page-title-name {
+
+    font-weight: 800;
+    font-size: 1rem;
+
+    color: #181F27;
+}
+
+.page-title-description {
+    margin-left: 0.2rem;
+
+    font-weight: 800;
+    font-size: 1rem;
+
+    color: #989FA7;
+}
+
+.page-account {
+    width: 32%;
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.page-content {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
+
+}
+
+
+.comp-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.comp-header-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #181F27;
+}
+
+.comp-header-subtitle {
+    margin-left: 0.2rem;
+
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #989FA7;
+}
+
+/*.is-manager {*/
+    /*flex: 1;*/
+/*}*/
+
+/*.is-manager:not(:first-child) {*/
+    /*border-left: 1px solid #E4E9F2;*/
+/*}*/
+
+
+.is-pane {
+    margin-top: 20px;
+
+    background: white;
+
+    box-shadow: 0px 1px 6px 1px #E4E9F2;
+    border: 1px solid #E4E9F2;
+}
+
+
+.page-footer {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    bottom: 0px;
+    left: 0px;
+    padding: 0 40px;
+}
+
+.left-pane-button {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 4px;
+    background: #E4E9F2;
+    background: white;
+
+    box-shadow: 0px 1px 6px 1px #E4E9F2;
+    border: 1px solid #D4D9E2;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-pane-button:hover {
+    cursor: pointer;
+}
+
+.left-pane-button svg {
+    width: 24px; 
+    height: 24px; 
+    fill: var(--color-blue);
+    fill: #42474F;
+    fill: #181F27;
+    margin-top: 4px;
+}
+
+
+/* Page Sidebar                                                               */
+/* -------------------------------------------------------------------------- */
+
+.page-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.page-sidebar {
+    width: 340px;
+    background: #D4D9E2;
+    background: #F0F4FA;
+    border-right: 1px dashed #E4E9F2;
+}

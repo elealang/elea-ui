@@ -1,0 +1,21 @@
+
+@import 'vars.css';
+
+
+.comp-program-editor {
+    padding: var(--comp-padding-vert) 32px;
+    width: 33%;
+    box-sizing: border-box;
+}
+
+.comp-program-editor-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.comp-program-editor-pane {
+
+}
