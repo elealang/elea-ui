@@ -9,12 +9,13 @@ module Web.HTML.Comp.ComputerChooser (
   ) where
 
 import Control.Monad (forM_)
+import qualified Data.Char as C (toUpper)
 import Data.Maybe (fromJust)
 import qualified Data.List as L (intercalate)
 import qualified Data.Text as T (unpack)
 import qualified Data.Text.IO as T (putStrLn)
 
-import Text.Blaze (preEscapedText, toValue)
+import Text.Blaze (preEscapedText, toMarkup, toValue)
 import Text.Blaze.Html (Html)
 import qualified Text.Blaze.Html5 as H
 import Text.Blaze.Html5 ((!))
@@ -23,7 +24,7 @@ import Text.Blaze.Html5.Attributes as A
 import Data.Assets (Assets (..))
 import Data.Icon (iconSVGWithName)
 import qualified Web.HTML.Alpine as X
-import Web.Types.ComputerChooser (ComputerChooser)
+import Web.Types.ComputerChooser (ComputerChooser, EntityType)
 import qualified Web.Types.ComputerChooser as ComputerChooser
 
 
@@ -36,7 +37,7 @@ html chooser assets = do
       H.div ! A.class_ "comp-computer-chooser-subtitle comp-header-subtitle" $ "PROVE"
     H.div ! A.class_ ((cls "pane") <> " is-pane") $ do
       listStateHTML assets
-      viewStateHTML assets
+      viewStateHTML chooser.entityType assets
 
 -- | List state HTML
 listStateHTML :: Assets -> Html 
@@ -63,8 +64,8 @@ listStateHTML assets = do
             H.preEscapedText $ fromJust $ iconSVGWithName "computation" assets.iconIndex
 
 -- | View state HTML
-viewStateHTML :: Assets -> Html 
-viewStateHTML assets = do
+viewStateHTML :: EntityType -> Assets -> Html 
+viewStateHTML entityType assets = do
   H.div ! A.class_ ((cls "view") <> " is-pane-state")
         ! X.show_ "state == 'view'" $ do
     headerHTML
@@ -99,7 +100,8 @@ viewStateHTML assets = do
         H.div ! A.class_ (cls "footer") $ do
           H.div ! A.class_ (cls "compute-button") $ do
             H.div ! A.class_ (cls "compute-button-verb") $ "COMPUTE"
-            H.div ! A.class_ (cls "compute-button-object") $ "STORY"
+            H.div ! A.class_ (cls "compute-button-object") $ 
+              toMarkup $ map C.toUpper $ show entityType
 
 
 -- | HTML helper combinators 

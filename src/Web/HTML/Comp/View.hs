@@ -22,9 +22,11 @@ import Text.Blaze (preEscapedText)
 
 import Data.Assets (Assets (..))
 import Data.Icon (iconSVGWithName)
+import qualified Web.HTML.Comp.ArrowEditor as ArrowEditor
 import qualified Web.HTML.Comp.ComputerChooser as ComputerChooser
 import qualified Web.HTML.Comp.ProgramEditor as ProgramEditor
 import qualified Web.HTML.Comp.StoryEditor as StoryEditor
+import Web.Types.ComputerChooser (EntityType (..))
 import Web.Types.View (
     View
   , ViewType (..)
@@ -38,14 +40,19 @@ html assets view = do
   H.div ! A.class_ "comp-view" $ do
     H.div ! A.class_ "comp-view-main" $ do
       sidebarHTML "edit" assets
-      mainCompHTML
+      mainHTML
     H.div ! A.class_ "comp-view-next" $ do
       sidebarHTML "arrow-right" assets
-      ComputerChooser.html ComputerChooser.new assets
+      nextHTML
   where
-    mainCompHTML = case view.typ of
+    mainHTML = case view.typ of
       DefineStory   -> StoryEditor.html assets
       DefineProgram -> ProgramEditor.html assets
+      DefineArrow   -> ArrowEditor.html assets
+    nextHTML = case view.typ of
+      DefineStory   -> ComputerChooser.html (ComputerChooser.new Story) assets
+      DefineProgram -> ComputerChooser.html (ComputerChooser.new Program) assets
+      DefineArrow   -> ComputerChooser.html (ComputerChooser.new Arrow) assets
 
 
 sidebarHTML :: Text -> Assets -> Html

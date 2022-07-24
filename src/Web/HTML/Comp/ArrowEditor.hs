@@ -1,16 +1,17 @@
 --
--- HTML.Comp.ProgramEditor
+-- HTML.Comp.ArrowEditor
 --
 
 {-# LANGUAGE OverloadedStrings #-}
 
-module Web.HTML.Comp.ProgramEditor (
+module Web.HTML.Comp.ArrowEditor (
     html
   ) where
 
 import Control.Monad (forM_)
 import qualified Data.List as L (intercalate)
 import Data.Maybe (fromJust)
+import Data.Text (Text)
 import qualified Data.Text as T (unpack)
 import qualified Data.Text.IO as T (putStrLn)
 
@@ -33,16 +34,22 @@ import Web.Types.Form (
 -- | View HTML
 html :: Assets -> Html
 html assets = do
-  H.div ! A.class_ "comp-program-editor" $ do
-    H.div ! A.class_ "comp-program-editor-content comp" $ do
+  H.div ! A.class_ "comp-arrow-editor" $ do
+    H.div ! A.class_ "comp-arrow-editor-content comp" $ do
       H.div ! classes [cls "header", "comp-header"] $ do
-        H.div ! classes [cls "title", "comp-header-title"] $ "PROGRAM"
-        H.div ! classes [cls "subtitle", "comp-header-subtitle"] $ "INTENTION"
+        H.div ! classes [cls "title", "comp-header-title"] $ "ARROW"
+        H.div ! classes [cls "subtitle", "comp-header-subtitle"] $ "RELATIONSHIP"
       H.div ! classes [cls "pane", "is-pane"] $ do
-        H.div ! A.class_ "comp-program-editor-form" $ do
+        H.div ! A.class_ "comp-story-editor-form" $ do
           Form.html assets form
   
+--id: "Hello, World!"
+--app-id: hello-world
+--init-state: *
+--term-state: @
 
+
+-- | Form HTML
 form :: Form
 form = Form {
     fields = [
@@ -51,7 +58,7 @@ form = Form {
         , defaultValue  = Nothing
         , fieldType     = FieldTypeText
         , markupId      = "name"
-        , isModel       = False
+        , isModel       = True
         , valueFunction = Nothing
       },
       Field {
@@ -61,11 +68,23 @@ form = Form {
         , markupId      = "description"
         , isModel       = False
         , valueFunction = Nothing
+      },
+      Field {
+          label         = "application id"
+        , defaultValue  = Nothing
+        , fieldType     = FieldTypeAppId
+        , markupId      = "app-id"
+        , isModel       = False
+        , valueFunction = Just jsKebabCaseFunction
       }
     ]
   }
 
 
+jsKebabCaseFunction :: Text
+jsKebabCaseFunction = "name.toLowerCase().replace(' ', '-').replace(/[^a-z0-9-]+/gi, '')"
+
+
 -- | HTML helper combinators 
 classes l = A.class_ $ toValue $ L.intercalate " " l
-cls s = "comp-program-editor-" <> s 
+cls s = "comp-arrow-editor-" <> s 

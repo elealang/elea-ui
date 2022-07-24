@@ -47,10 +47,10 @@ documentHTML assets contentHtml = H.docTypeHtml $ do
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
            ! A.href "/static/css/page.css"
-    -- CSS/Component: AbstractionManager
+    -- CSS/Component: ArrowEditor
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
-           ! A.href "/static/css/abstraction-manager.css"
+           ! A.href "/static/css/comp-arrow-editor.css"
     -- CSS/Component: Form
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
@@ -58,11 +58,7 @@ documentHTML assets contentHtml = H.docTypeHtml $ do
     -- CSS/Component: ComputerChooser
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
-           ! A.href "/static/css/computer-chooser.css"
-    -- CSS/Component: ProgramManager
-    H.link ! A.rel "stylesheet" 
-           ! A.type_ "text/css" 
-           ! A.href "/static/css/program-manager.css"
+           ! A.href "/static/css/comp-computer-chooser.css"
     -- CSS/Component: ProgramEditor
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
@@ -101,7 +97,7 @@ pageHeaderHTML assets = do
     H.div ! A.class_ "page-title" $ do
       H.div ! A.class_ "page-title-name" $ "ELEA"
       H.div ! A.class_ "page-title-description" $ "ENGINE FOR ETHICAL CHANGE"
-    ViewSwitcher.html (View.new View.DefineStory) assets
+    ViewSwitcher.html (View.new View.DefineProgram) assets
     H.div ! A.class_ "page-account" $ return ()
 
 

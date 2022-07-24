@@ -18,10 +18,10 @@ import Web.HTML.Page (documentHTML)
 import qualified Web.Types.View as View
 
 
-page :: Assets -> Handler Html
-page assets = return $ do
+page :: Assets -> Text -> Handler Html
+page assets _ = return $ do
   documentHTML assets $ 
-    View.html assets (View.new View.DefineStory)
+    View.html assets (View.new View.DefineArrow)
     
 
 

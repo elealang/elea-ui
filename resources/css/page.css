@@ -104,6 +104,11 @@ ul {
 
 }
 
+.comp {
+    width: 520px;
+    box-sizing: border-box;
+    padding: 40px 40px 80px 40px;
+}
 
 .comp-header {
     display: flex;

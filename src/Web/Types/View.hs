@@ -38,6 +38,7 @@ instance ToJSON View where
 data ViewType =
     DefineStory
   | DefineProgram
+  | DefineArrow
   deriving (Generic, Show)
 
 instance ToJSON ViewType where
@@ -52,14 +53,16 @@ new viewType = View False viewType
 verb :: ViewType -> Text
 verb DefineStory   = "define"
 verb DefineProgram = "define"
+verb DefineArrow   = "define"
 
 -- | Get the "object" for a view type
 object :: ViewType -> Text
 object DefineStory   = "story"
 object DefineProgram = "program"
+object DefineArrow   = "arrow"
 
 
 -- | Get the "object" for a view type
 next :: ViewType -> [ViewType]
-next DefineStory   = [DefineProgram]
-next DefineProgram = []
+next DefineStory = [DefineProgram]
+next _           = []

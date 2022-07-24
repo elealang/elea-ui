@@ -8,6 +8,37 @@
 
 }
 
+.comp-form-field-input {
+    height: 36px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px dashed #D2D7DF;
+    border-bottom: 1px dashed #363A42;
+    border-radius: 2px;
+
+    background: #F2F6FB;
+    padding: 0 12px;
+}
+
+.comp-form-field-app-id-refresh-button:hover {
+    cursor: pointer;
+}
+
+.comp-form-field-app-id-refresh-button:hover svg {
+    fill: #41454E;
+}
+
+.comp-form-field-app-id-refresh-button svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: #93989E;
+    margin-top: 0.2rem;
+}
+
 .comp-form-field:not(:last-child) {
     margin-bottom: 20px;
 }
@@ -20,16 +51,10 @@
 }
 
 .comp-form-field input {
-    height: 36px;
+    height: 100%;
 
     box-shadow: none;
-    border: 1px dashed #D2D7DF;
-    border-bottom: 1px dashed #363A42;
-    border-radius: 2px;
-
-    background: #F2F7FF;
-    background: #F2F6FB;
-    padding: 0 12px;
+    background: none;
 
     font-size: 1.1rem;
     font-weight: 400;

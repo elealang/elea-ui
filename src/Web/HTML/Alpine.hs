@@ -8,7 +8,10 @@
 
 module Web.HTML.Alpine (
     html
-  , show_
+  , show_, model
+  -- Bindings
+  , text, value
+  -- Events
   , onClick
   , onEnter, onLeave
   ) where
@@ -26,7 +29,7 @@ import Text.Blaze (
 import Text.Blaze.Html (Html)
 import Text.Blaze.Html5 ((!))
 import qualified Text.Blaze.Html5 as H
-import Text.Blaze.Html5.Attributes as A
+import qualified Text.Blaze.Html5.Attributes as A
 
 
 html :: (ToJSON a) => a -> Text -> Html -> Html
@@ -38,6 +41,15 @@ html compValue compName innerHtml = do
 
 show_ :: Text -> Attribute
 show_ var = customAttribute "x-show" $ toValue var  
+
+model :: Text -> Attribute
+model var = customAttribute "x-model" $ toValue var  
+
+text :: Text -> Attribute
+text js = customAttribute "x-text" $ toValue js
+
+value :: Text -> Attribute
+value js = customAttribute "x-bind:value" $ toValue js
 
 onClick :: Text -> Attribute
 onClick js = customAttribute "@click" $ toValue js  

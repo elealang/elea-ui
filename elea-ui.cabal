@@ -58,6 +58,7 @@ executable elea-ui
 			Web.Handler
 			Web.HTML.Alpine
 			Web.HTML.Page
+			Web.HTML.Comp.ArrowEditor
 			Web.HTML.Comp.AbstractionManager
 			Web.HTML.Comp.ComputerChooser
 			Web.HTML.Comp.Form

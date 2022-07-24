@@ -2,10 +2,10 @@
 @import 'vars.css';
 
 
-.comp-program-editor {
+.comp-arrow-editor {
 }
 
-.comp-program-editor-header {
+.comp-arrow-editor-header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -13,6 +13,6 @@
 
 }
 
-.comp-program-editor-pane {
+.comp-arrow-editor-pane {
     padding: 20px 20px;
 }
