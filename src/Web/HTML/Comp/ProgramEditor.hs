@@ -28,6 +28,10 @@ import Web.Types.Form (
   , Field (..)
   , FieldType (..)
   )
+import qualified Web.Types.Form as Form (
+    textField
+  , paragraphField
+  )
 
 
 -- | View HTML
@@ -46,22 +50,8 @@ html assets = do
 form :: Form
 form = Form {
     fields = [
-      Field {
-          label         = "name"
-        , defaultValue  = Nothing
-        , fieldType     = FieldTypeText
-        , markupId      = "name"
-        , isModel       = False
-        , valueFunction = Nothing
-      },
-      Field {
-          label         = "description"
-        , defaultValue  = Nothing
-        , fieldType     = FieldTypeParagraph
-        , markupId      = "description"
-        , isModel       = False
-        , valueFunction = Nothing
-      }
+      Basic $ Form.textField "name" "name"
+    , Basic $ Form.paragraphField "description" "description"
     ]
   }
 

@@ -36,7 +36,7 @@ instance ToJSON ComputerChooser where
 
 -- | Create a new Computer Chooser with default values
 new :: EntityType -> ComputerChooser
-new entityType = ComputerChooser View entityType
+new entityType = ComputerChooser List entityType
 
 
 -- | State
@@ -50,6 +50,7 @@ instance ToJSON State where
   toEncoding = genericToEncoding $ defaultOptions {
     constructorTagModifier = map C.toLower 
   }
+
 
 -- | Entity type
 data EntityType = 

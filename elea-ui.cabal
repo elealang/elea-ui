@@ -57,26 +57,33 @@ executable elea-ui
   other-modules: 	Web.API
 			Web.Handler
 			Web.HTML.Alpine
+			Web.HTML.HTMX
+			Web.HTML.Document
 			Web.HTML.Page
+			Web.HTML.Page.Build
+			Web.HTML.Page.Home
 			Web.HTML.Comp.ArrowEditor
 			Web.HTML.Comp.AbstractionManager
 			Web.HTML.Comp.ComputerChooser
 			Web.HTML.Comp.Form
 			Web.HTML.Comp.ProgramEditor
 			Web.HTML.Comp.ProgramManager
+			Web.HTML.Comp.StateButton
 			Web.HTML.Comp.StoryEditor
+			Web.HTML.Comp.StoryLink
 			Web.HTML.Comp.ViewSwitcher
-			Web.HTML.Comp.View
 			Web.Server
 			Web.Types.ComputerChooser
 			Web.Types.Form
 			Web.Types.Page
+			Web.Types.State
 			Web.Types.View
 			Config
 			Data.Assets
 			Data.Icon
 
   -- LANGUAGE extensions used by modules in this package.
+  default-extensions:   OverloadedStrings
   -- other-extensions:
 
   -- Other library packages from which modules are imported.
@@ -100,11 +107,10 @@ executable elea-ui
 		    	yaml >= 0.11.5.0
 
   -- Directories containing source files.
-  hs-source-dirs:      src
+  hs-source-dirs:       src
 
   -- Base language which the package is written in.
-  default-language:    Haskell2010
+  default-language:     Haskell2010
 
-  ghc-options:
-    -F -pgmF=record-dot-preprocessor
+  ghc-options:          -F -pgmF=record-dot-preprocessor
 

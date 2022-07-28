@@ -6,27 +6,37 @@
 {-# OPTIONS_GHC -F -pgmF=record-dot-preprocessor #-}
 
 module Web.Types.Page (
-    Page (..), new
+    Page (..)
   ) where
 
-import Data.Aeson (
-    ToJSON (..)
-  , genericToEncoding, defaultOptions
-  )
-import GHC.Generics
 
-import Data.Text (Text)
+import           Data.Aeson (
+    ToJSON (..)
+  , object, (.=)
+  )
+import           GHC.Generics
+import           Text.Blaze.Html (Html)
+import           Text.Blaze.Html5 ((!))
+import qualified Text.Blaze.Html5 as H
+import           Text.Blaze.Html5.Attributes as A
+
+import           Data.Assets (Assets (..))
+import           Data.Text (Text)
+import qualified Data.Text as T (empty)
 
 
 data Page = Page {
-  historyPaneOpen :: Bool
-} deriving (Generic, Show)
+    assets           :: Assets
+  , storyPaneOpen    :: Bool
+  , showStoryButton  :: Bool
+  , headerCenterHTML :: Html
+  , contentHTML      :: Html
+}
 
 instance ToJSON Page where
-  toEncoding = genericToEncoding defaultOptions
+  toJSON page = object $ [
+      "storyPaneOpen"   .= page.storyPaneOpen
+    , "showStoryButton" .= page.showStoryButton
+    ]
 
 
-new :: Page
-new = Page {
-    historyPaneOpen = False
-}

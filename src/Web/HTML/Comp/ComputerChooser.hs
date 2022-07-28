@@ -58,6 +58,13 @@ listStateHTML assets = do
         H.div ! A.class_ (cls "search-result")
               ! X.onClick "state = 'view'" $ do
           H.div ! A.class_ (cls "search-result-info") $ do
+            H.div ! A.class_ (cls "search-result-name") $ "Browser Local Storage"
+            H.div ! A.class_ (cls "search-result-domain") $ "current browser"
+          H.div ! A.class_ (cls "search-result-icon") $ do
+            H.preEscapedText $ fromJust $ iconSVGWithName "computation" assets.iconIndex
+        H.div ! A.class_ (cls "search-result")
+              ! X.onClick "state = 'view'" $ do
+          H.div ! A.class_ (cls "search-result-info") $ do
             H.div ! A.class_ (cls "search-result-name") $ "Elea World"
             H.div ! A.class_ (cls "search-result-domain") $ "world.elea.computer"
           H.div ! A.class_ (cls "search-result-icon") $ do
@@ -77,7 +84,8 @@ viewStateHTML entityType assets = do
           H.div ! A.class_ (cls "state-name") $ "view computer"
         H.div ! A.class_ (cls "computer") $ do
           H.div ! A.class_ (cls "computer-name") $ "Elea World"
-          H.div ! A.class_ (cls "back-button") $ 
+          H.div ! A.class_ (cls "back-button")
+                ! X.onClick "state = 'list'" $ do
             H.preEscapedText $ fromJust $ iconSVGWithName "close" assets.iconIndex
     contentHTML = do
       H.div ! A.class_ (cls "pane-content") $ do

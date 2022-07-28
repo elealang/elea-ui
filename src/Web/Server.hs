@@ -22,8 +22,10 @@ import Servant
 import Data.Assets (Assets)
 import Config (Config)
 import Web.API (API)
-import qualified Web.Handler as Handler (page)
-
+import qualified Web.Handler as Handler (
+    pageHome
+  , pageMainCreateStory
+  )
 
 
 api :: Proxy API
@@ -31,8 +33,10 @@ api = Proxy
 
 
 server :: Config -> Assets -> Server API
-server _ assets = Handler.page assets
-      :<|> serveDirectoryWebApp "resources/"
+server _ assets =  
+        Handler.pageHome assets
+   :<|> Handler.pageMainCreateStory assets
+   :<|> serveDirectoryWebApp "resources/"
 
 
 app :: Config -> Assets -> Application

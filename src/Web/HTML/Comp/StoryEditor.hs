@@ -21,11 +21,15 @@ import Text.Blaze (preEscapedText)
 
 import Data.Assets (Assets (..))
 import Data.Icon (iconSVGWithName)
-import qualified Web.HTML.Comp.Form as Form
+import qualified Web.HTML.Comp.Form as Form (html)
 import Web.Types.Form (
     Form (..)
   , Field (..)
   , FieldType (..)
+  )
+import qualified Web.Types.Form as Form (
+    textField
+  , paragraphField
   )
 
 
@@ -45,24 +49,8 @@ html assets = do
 form :: Form
 form = Form {
     fields = [
-      Field {
-          label = "name"
-        , defaultValue = Nothing
-        , fieldType = FieldTypeText
-        , markupId = "name"
-      },
-      Field {
-          label = "description"
-        , defaultValue = Nothing
-        , fieldType = FieldTypeParagraph
-        , markupId = "description"
-      }
-      --Field {
-          --label = "id"
-        --, defaultValue = Nothing
-        --, fieldType = FieldTypeText
-        --, markupId = "id"
-      --}
+        Basic $ Form.textField "name" "name"
+      , Basic $ Form.paragraphField "description" "description"
     ]
   }
 

@@ -8,13 +8,11 @@
 
 module Web.Types.View (
     -- Public types
-    View (..), ViewType (..)
+    View (..)
     -- Constructors
   , new
-    -- Utility functions
-  , verb, object
-  , next
   ) where
+
 
 import Data.Aeson (
     ToJSON (..)
@@ -23,46 +21,37 @@ import Data.Aeson (
 import Data.Text (Text)
 import GHC.Generics
 
+import Web.Types.State (State)
+
 
 -- | View
 data View = View {
     chooserOpen :: Bool
-  , typ         :: ViewType
+  , state       :: State
 } deriving (Generic, Show)
 
 instance ToJSON View where
   toEncoding = genericToEncoding defaultOptions
 
 
--- | View Type
-data ViewType =
-    DefineStory
-  | DefineProgram
-  | DefineArrow
-  deriving (Generic, Show)
-
-instance ToJSON ViewType where
-  toEncoding = genericToEncoding defaultOptions
-
-
-new :: ViewType -> View
-new viewType = View False viewType
+new :: State -> View
+new state = View False state
 
 
 -- | Get the "verb" for a view type
-verb :: ViewType -> Text
-verb DefineStory   = "define"
-verb DefineProgram = "define"
-verb DefineArrow   = "define"
+--verb :: ViewType -> Text
+--verb DefineStory   = "define"
+--verb DefineProgram = "define"
+--verb DefineArrow   = "define"
 
 -- | Get the "object" for a view type
-object :: ViewType -> Text
-object DefineStory   = "story"
-object DefineProgram = "program"
-object DefineArrow   = "arrow"
+--object :: ViewType -> Text
+--object DefineStory   = "story"
+--object DefineProgram = "program"
+--object DefineArrow   = "arrow"
 
 
 -- | Get the "object" for a view type
-next :: ViewType -> [ViewType]
-next DefineStory = [DefineProgram]
-next _           = []
+--next :: ViewType -> [ViewType]
+--next DefineStory = [DefineProgram]
+--next _           = []

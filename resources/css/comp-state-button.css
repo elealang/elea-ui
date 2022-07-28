@@ -1,0 +1,43 @@
+
+@import 'vars.css';
+
+.comp-state-button {
+
+    text-decoration: none;
+    
+    padding: 12px 24px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    box-shadow: 0px 1px 6px 1px #E4E9F2;
+    border: 1px solid #D4D9E2;
+    border-radius: 2px;
+
+    font-weight: 800;
+    font-size: 0.95rem;
+}
+
+.comp-state-button:hover {
+    cursor: pointer;
+    box-shadow: 0px 1px 9px 3px #E4E9F2;
+}
+
+.comp-state-button-icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: var(--color-pink);
+    margin-top: 0.2rem;
+    margin-right: 0.4rem;
+}
+
+.comp-state-button-verb {
+    color: var(--color-pink);
+    margin-right: 0.5rem;
+}
+
+
+.comp-state-button-object {
+    color: #555A66;
+}

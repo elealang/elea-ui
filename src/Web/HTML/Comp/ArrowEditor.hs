@@ -15,7 +15,7 @@ import Data.Text (Text)
 import qualified Data.Text as T (unpack)
 import qualified Data.Text.IO as T (putStrLn)
 
-import Text.Blaze (preEscapedText, toValue)
+import Text.Blaze (toValue)
 import Text.Blaze.Html (Html)
 import qualified Text.Blaze.Html5 as H
 import Text.Blaze.Html5 ((!))
@@ -26,8 +26,12 @@ import Data.Icon (iconSVGWithName)
 import qualified Web.HTML.Comp.Form as Form
 import Web.Types.Form (
     Form (..)
-  , Field (..)
+  , Field (..), FieldBasic (..), FieldChoice (..)
   , FieldType (..)
+  )
+import qualified Web.Types.Form as Form (
+    textField, paragraphField
+  , divider
   )
 
 
@@ -53,23 +57,24 @@ html assets = do
 form :: Form
 form = Form {
     fields = [
-      Field {
+      Basic $ FieldBasic {
           label         = "name"
         , defaultValue  = Nothing
         , fieldType     = FieldTypeText
         , markupId      = "name"
         , isModel       = True
         , valueFunction = Nothing
-      },
-      Field {
+      }
+    , Basic $ FieldBasic {
           label         = "description"
         , defaultValue  = Nothing
         , fieldType     = FieldTypeParagraph
         , markupId      = "description"
         , isModel       = False
         , valueFunction = Nothing
-      },
-      Field {
+      }
+    , Form.divider
+    , Basic $ FieldBasic {
           label         = "application id"
         , defaultValue  = Nothing
         , fieldType     = FieldTypeAppId
@@ -77,6 +82,23 @@ form = Form {
         , isModel       = False
         , valueFunction = Just jsKebabCaseFunction
       }
+    , Form.divider
+    , Choice $ FieldChoice "start state"[
+        ( "any"
+        , Form.textField "start state" "init-state"
+        )
+      , ( "id"
+        , Form.textField "end state" "term-state"
+        )
+      ]
+    , Choice $ FieldChoice "end state"[
+        ( "mind"
+        , Form.textField "start state" "init-state"
+        )
+      , ( "id"
+        , Form.textField "end state" "term-state"
+        )
+      ]
     ]
   }
 
