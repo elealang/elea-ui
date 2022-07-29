@@ -65,4 +65,5 @@
     border-top: 1px solid #E4E9F2;
     border-bottom: 1px solid #E4E9F2;
     box-shadow: 0px 3px 9px 5px #E5ECF645; 
+    box-shadow: none;
 }

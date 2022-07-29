@@ -9,34 +9,47 @@
 module Web.Types.ComputerChooser (
     -- Public types
     ComputerChooser (..)
-  , State (..), EntityType (..)
+  , State (..)
     -- Constructors
   , new
   ) where
 
-import Data.Aeson (
+
+import           Data.Aeson (
     ToJSON (..)
   , genericToEncoding, defaultOptions
   , Options (constructorTagModifier)
+  , (.=)
   )
-import qualified Data.Char as C (toLower)
-import Data.Text (Text)
-import GHC.Generics
+import qualified Data.Aeson as JSON (
+    Value (..)
+  , object
+  )
+import qualified Data.Text as T (pack, toLower)
+import           Data.Text (Text)
+import           GHC.Generics
+
+import           Elea.Base (Object (..))
+import           Elea.Index (ComputerIndex)
 
 
 -- | Computer Chooser
 data ComputerChooser = ComputerChooser {
-    state      :: State
-  , entityType :: EntityType
-} deriving (Generic, Show)
+    state         :: State
+  , computerIndex :: ComputerIndex
+  , object        :: Object
+}
 
 instance ToJSON ComputerChooser where
-  toEncoding = genericToEncoding defaultOptions
+  toJSON computerChooser = JSON.object [
+      "state"  .= toJSON computerChooser.state
+    , "object" .= computerChooser.object
+    ]
 
 
 -- | Create a new Computer Chooser with default values
-new :: EntityType -> ComputerChooser
-new entityType = ComputerChooser List entityType
+new :: ComputerIndex -> Object -> ComputerChooser
+new compIdx obj = ComputerChooser List compIdx obj
 
 
 -- | State
@@ -47,19 +60,8 @@ data State =
   deriving (Generic, Eq, Ord, Show)
 
 instance ToJSON State where
-  toEncoding = genericToEncoding $ defaultOptions {
-    constructorTagModifier = map C.toLower 
-  }
+  toJSON state = JSON.String $ T.toLower $ T.pack $ show state
+  --toEncoding = genericToEncoding $ defaultOptions {
+    --constructorTagModifier = map C.toLower 
+  --}
 
-
--- | Entity type
-data EntityType = 
-    Story
-  | Program
-  | Arrow
-  deriving (Generic, Eq, Ord, Show)
-
-instance ToJSON EntityType where
-  toEncoding = genericToEncoding $ defaultOptions {
-    constructorTagModifier = map C.toLower 
-  }

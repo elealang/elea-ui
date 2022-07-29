@@ -1,0 +1,3 @@
+packages: ./elea-ui.cabal
+          ../core/elea.cabal 
+            

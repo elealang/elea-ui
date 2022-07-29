@@ -22,6 +22,7 @@ import           Data.Assets (Assets (..))
 import           Data.Icon (iconSVGWithName)
 import qualified Web.HTML.Alpine as X
 import qualified Web.HTML.Document as Document (html)
+import qualified Web.HTML.Comp.StoryHistory as StoryHistory (html)
 import           Web.Types.Page (Page)
 import qualified Web.Types.Page as Page
 import qualified Web.Types.View as View
@@ -54,10 +55,7 @@ pageSidebarHTML :: Assets -> Html
 pageSidebarHTML assets = do
   H.div ! A.class_ "page-sidebar" 
         ! customAttribute "x-show" "storyPaneOpen" $ do
-    H.div ! A.class_ "page-story-header" $ do
-      H.div ! A.class_ "page-story-label" $ "story of"
-      H.div ! A.class_ "page-story-selector" $ 
-        H.div ! A.class_ "page-story-selector-name" $ "Build Hello World"
+    StoryHistory.html Nothing assets
 
 
 -- | Page footer HTML

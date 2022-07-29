@@ -42,9 +42,10 @@ html stateVerb stateObject assets = do
   let route = T.toLower stateVerb <> "-" <> T.toLower stateObject
   H.a ! classes ["comp-state-button"] 
       ! A.href "/create-story" $ do
-    H.div ! classes [cls "icon"] $ iconByVerb stateVerb assets
-    H.div ! classes [cls "verb"] $ toMarkup stateVerb
-    H.div ! classes [cls "object"] $ toMarkup stateObject
+    H.div ! classes [cls "content"] $ do
+      H.div ! classes [cls "icon"] $ iconByVerb stateVerb assets
+      H.div ! classes [cls "verb"] $ toMarkup stateVerb
+      H.div ! classes [cls "object"] $ toMarkup stateObject
 
 
 iconByVerb :: Text -> Assets -> Html

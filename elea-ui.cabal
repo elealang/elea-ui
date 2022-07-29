@@ -70,6 +70,7 @@ executable elea-ui
 			Web.HTML.Comp.ProgramManager
 			Web.HTML.Comp.StateButton
 			Web.HTML.Comp.StoryEditor
+			Web.HTML.Comp.StoryHistory
 			Web.HTML.Comp.StoryLink
 			Web.HTML.Comp.ViewSwitcher
 			Web.Server
@@ -94,6 +95,7 @@ executable elea-ui
 			bytestring,
 			cmark-gfm,
 			containers,
+                        elea,
 			directory,
 			filepath,
 			mtl,

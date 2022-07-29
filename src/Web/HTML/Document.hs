@@ -62,6 +62,10 @@ html pageHtml = H.docTypeHtml $ do
     H.link ! A.rel "stylesheet"
            ! A.type_ "text/css" 
            ! A.href "/static/css/comp-story-editor.css"
+    -- CSS/Component: StoryHistory
+    H.link ! A.rel "stylesheet"
+           ! A.type_ "text/css" 
+           ! A.href "/static/css/comp-story-history.css"
     -- CSS/Component: StoryLink
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 

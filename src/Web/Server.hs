@@ -33,9 +33,9 @@ api = Proxy
 
 
 server :: Config -> Assets -> Server API
-server _ assets =  
+server config assets =  
         Handler.pageHome assets
-   :<|> Handler.pageMainCreateStory assets
+   :<|> Handler.pageMainCreateStory config.elea assets
    :<|> serveDirectoryWebApp "resources/"
 
 
@@ -45,5 +45,5 @@ app config assets = serve api $ server config assets
 
 runServer :: Config -> Assets -> IO ()
 runServer config assets = do
-  run config.port $ app config assets
+  run config.server.port $ app config assets
 

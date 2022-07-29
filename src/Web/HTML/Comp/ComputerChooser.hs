@@ -24,8 +24,10 @@ import Text.Blaze.Html5.Attributes as A
 import Data.Assets (Assets (..))
 import Data.Icon (iconSVGWithName)
 import qualified Web.HTML.Alpine as X
-import Web.Types.ComputerChooser (ComputerChooser, EntityType)
+import Web.Types.ComputerChooser (ComputerChooser)
 import qualified Web.Types.ComputerChooser as ComputerChooser
+
+import Elea.Base (Computer, Object)
 
 
 -- | Computer Chooser HTML
@@ -36,12 +38,12 @@ html chooser assets = do
       H.div ! A.class_ "comp-computer-chooser-title comp-header-title" $ "COMPUTE"
       H.div ! A.class_ "comp-computer-chooser-subtitle comp-header-subtitle" $ "PROVE"
     H.div ! A.class_ ((cls "pane") <> " is-pane") $ do
-      listStateHTML assets
-      viewStateHTML chooser.entityType assets
+      listStateHTML chooser.computerIndex.computers assets
+      viewStateHTML chooser.object assets
 
 -- | List state HTML
-listStateHTML :: Assets -> Html 
-listStateHTML assets = do
+listStateHTML :: [Computer] -> Assets -> Html 
+listStateHTML computers assets = do
   H.div ! A.class_ ((cls "list") <> " is-pane-state")
         ! X.show_ "state == 'list'" $ do
     H.div ! A.class_ (cls "pane-header") $ do
@@ -53,26 +55,23 @@ listStateHTML assets = do
           H.div ! A.class_ (cls "search-subquery") $ "all"
         H.div ! A.class_ (cls "search-button") $ 
           H.preEscapedText $ fromJust $ iconSVGWithName "search" assets.iconIndex
-    H.div ! A.class_ (cls "pane-content") $ do
-      H.div ! A.class_ (cls "search-result-list") $ do
-        H.div ! A.class_ (cls "search-result")
-              ! X.onClick "state = 'view'" $ do
-          H.div ! A.class_ (cls "search-result-info") $ do
-            H.div ! A.class_ (cls "search-result-name") $ "Browser Local Storage"
-            H.div ! A.class_ (cls "search-result-domain") $ "current browser"
-          H.div ! A.class_ (cls "search-result-icon") $ do
-            H.preEscapedText $ fromJust $ iconSVGWithName "computation" assets.iconIndex
-        H.div ! A.class_ (cls "search-result")
-              ! X.onClick "state = 'view'" $ do
-          H.div ! A.class_ (cls "search-result-info") $ do
-            H.div ! A.class_ (cls "search-result-name") $ "Elea World"
-            H.div ! A.class_ (cls "search-result-domain") $ "world.elea.computer"
-          H.div ! A.class_ (cls "search-result-icon") $ do
-            H.preEscapedText $ fromJust $ iconSVGWithName "computation" assets.iconIndex
+    H.div ! A.class_ (cls "pane-content") $
+      H.div ! A.class_ (cls "search-result-list") $
+        forM_ computers $ computerHTML assets
+  where
+    computerHTML assets computer = do
+      H.div ! A.class_ (cls "search-result")
+            ! X.onClick "state = 'view'" $ do
+        H.div ! A.class_ (cls "search-result-info") $ do
+          H.div ! A.class_ (cls "search-result-name") $ toMarkup computer.name
+          H.div ! A.class_ (cls "search-result-domain") $ 
+            toMarkup computer.uri
+        H.div ! A.class_ (cls "search-result-icon") $ do
+          H.preEscapedText $ fromJust $ iconSVGWithName "computation" assets.iconIndex
 
 -- | View state HTML
-viewStateHTML :: EntityType -> Assets -> Html 
-viewStateHTML entityType assets = do
+viewStateHTML :: Object -> Assets -> Html 
+viewStateHTML object assets = do
   H.div ! A.class_ ((cls "view") <> " is-pane-state")
         ! X.show_ "state == 'view'" $ do
     headerHTML
@@ -109,7 +108,7 @@ viewStateHTML entityType assets = do
           H.div ! A.class_ (cls "compute-button") $ do
             H.div ! A.class_ (cls "compute-button-verb") $ "COMPUTE"
             H.div ! A.class_ (cls "compute-button-object") $ 
-              toMarkup $ map C.toUpper $ show entityType
+              toMarkup $ map C.toUpper $ show object
 
 
 -- | HTML helper combinators 

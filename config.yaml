@@ -1,2 +1,13 @@
-port: 9000
-icons_dir: assets/icons/
+server:
+  port: 9000
+  icons_dir: assets/icons/
+elea:
+  computers:
+    - name: Browser Local Storage
+      for_object: computer
+      uri: browser
+      resources: []
+    - name: Computer World
+      for_object: computer
+      uri: world.elea.computer
+      resources: []

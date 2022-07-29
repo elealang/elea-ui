@@ -30,8 +30,8 @@ main = do
       print $ Y.prettyPrintParseException err
     Right conf -> do
       putStrLn "Loading icons: assets/icons/"
-      mIconIndex <- I.load conf.iconsDir
-      putStrLn $ "Starting web server: PORT=" ++ show conf.port
+      mIconIndex <- I.load conf.server.iconsDir
+      putStrLn $ "Starting web server: PORT=" ++ show conf.server.port
       case mIconIndex of
         Just iconIndex -> do
           Web.runServer conf $ Assets iconIndex

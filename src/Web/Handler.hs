@@ -18,6 +18,7 @@ import           Text.Blaze.Html5 ((!))
 import qualified Text.Blaze.Html5.Attributes as A
 
 import           Data.Assets (Assets (..))
+import           Config (EleaConfig (..))
 import qualified Web.HTML.Page.Home as PageHome (html)
 import qualified Web.HTML.Page.Build as PageBuild (html)
 import qualified Web.Types.State as State
@@ -29,9 +30,9 @@ pageHome assets = return $
   PageHome.html assets 
 
 
-pageMainCreateStory :: Assets -> Handler Html
-pageMainCreateStory assets = return $ 
-  PageBuild.html assets State.MainCreateStory
+pageMainCreateStory :: EleaConfig -> Assets -> Handler Html
+pageMainCreateStory config assets = return $ 
+  PageBuild.html config assets State.MainCreateStory
 
  -- where
     --state       = State.MainCreateStory
