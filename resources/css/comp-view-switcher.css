@@ -1,4 +1,6 @@
 
+@import 'vars.css';
+
 .comp-view-switcher {
     display: flex;
     flex-direction: column;
@@ -55,15 +57,60 @@
 
 
 .comp-view-switcher-chooser {
+
     position: absolute;
     top: 62px;
     left: 0;
     right: 0;
-    height: 400px;
-    background: white;
     z-index: 5000;
+
     border-top: 1px solid #E4E9F2;
     border-bottom: 1px solid #E4E9F2;
-    box-shadow: 0px 3px 9px 5px #E5ECF645; 
     box-shadow: none;
+    box-shadow: 0px 2px 6px 0 #EAEFF7;
+
+    background: white;
+    padding: 40px;
+}
+
+
+.comp-view-switcher-chooser-header {
+    color: #72777F;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.comp-view-switcher-chooser .comp-state-button {
+    margin-top: 12px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background: #F4F7FB;
+    box-shadow: none;
+}
+
+.comp-view-switcher-chooser .comp-state-button-verb {
+    color: #555A66;
+    color: #3A3F48;
+}
+
+.comp-view-switcher-chooser .comp-state-button-object {
+    color: #555A66;
+    color: #3A3F48;
+}
+
+.comp-view-switcher-chooser .comp-state-button-icon {
+    margin-right: 0.4rem;
+}
+
+.comp-view-switcher-chooser .comp-state-button-icon svg {
+    fill: #3A3F48;
+}
+
+.comp-view-switcher-chooser-choice:hover .comp-state-button-object {
+    color: var(--color-pink);
+}
+
+.comp-view-switcher-chooser-choice:hover .comp-state-button-verb {
+    color: var(--color-pink);
 }

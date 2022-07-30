@@ -10,6 +10,7 @@ module Web.HTML.Page.Home (
 
 
 import           Control.Monad (forM_)
+import qualified Data.List as L (intercalate)
 import           Data.Maybe (fromJust)
 import           Data.Text (Text)
 import qualified Data.Text as T (unpack)
@@ -27,6 +28,7 @@ import qualified Web.HTML.Page as Page (html)
 import qualified Web.HTML.Comp.StateButton as StateButton
 import qualified Web.HTML.Comp.StoryLink as StoryLink
 import           Web.Types.Page (Page (..))
+import qualified Web.Types.State as State (State (..))
 
 
 html :: Assets -> Html
@@ -63,8 +65,8 @@ pageHTML assets = do
           StoryLink.html "Buying Stuff Online" linkSize assets
         H.div ! A.class_ "page-home-main-left-actions" $ do
           H.div ! A.class_ "page-home-main-left-actions-buttons" $ do
-            StateButton.html "CREATE" "STORY" assets
-            StateButton.html "FIND" "STORY" assets
+            StateButton.html State.MainCreateStory assets
+            StateButton.html State.MainFindStory assets
       H.div ! A.class_ "page-home-main-right" $ do
         H.div ! A.class_ "page-home-browse" $ do
           H.div ! A.class_ "page-home-browse-abstractions" $ return ()

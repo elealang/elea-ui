@@ -6,46 +6,37 @@
 
 module Web.HTML.Comp.StateButton (
     html
-  , Size (..)
   ) where
 
 
-import Control.Monad (forM_)
-import qualified Data.Char as C (toLower)
+import           Control.Monad (forM_)
 import qualified Data.Map as M (lookup, fromList)
 import qualified Data.List as L (intercalate)
-import Data.Maybe (fromJust)
-import Data.Text (Text)
-import qualified Data.Text as T (toLower)
+import           Data.Maybe (fromJust)
+import           Data.Text (Text)
+import qualified Data.Text as T (toLower, toUpper)
 
-import Text.Blaze (preEscapedText, toMarkup, toValue)
-import Text.Blaze.Html (Html)
+import           Text.Blaze.Html (Html)
 import qualified Text.Blaze.Html5 as H
-import Text.Blaze.Html5 ((!))
-import Text.Blaze.Html5.Attributes as A
+import           Text.Blaze.Html5 ((!))
+import           Text.Blaze.Html5.Attributes as A
 
-import Data.Assets (Assets (..))
-import Data.Icon (iconSVGWithName)
+import           Data.Assets (Assets (..))
+import           Data.Icon (iconSVGWithName)
 import qualified Web.HTML.HTMX as HX
-
-
--- | Story link size variations
-data Size = 
-    Small
-  | Large
-  deriving (Show)
+import           Web.Types.State (State)
+import qualified Web.Types.State as State
 
 
 -- | HTML
-html :: Text -> Text -> Assets -> Html
-html stateVerb stateObject assets = do
-  let route = T.toLower stateVerb <> "-" <> T.toLower stateObject
+html :: State -> Assets -> Html
+html st assets = do
   H.a ! classes ["comp-state-button"] 
-      ! A.href "/create-story" $ do
+      ! A.href (H.toValue $ State.route st) $ do
     H.div ! classes [cls "content"] $ do
-      H.div ! classes [cls "icon"] $ iconByVerb stateVerb assets
-      H.div ! classes [cls "verb"] $ toMarkup stateVerb
-      H.div ! classes [cls "object"] $ toMarkup stateObject
+      H.div ! classes [cls "icon"] $ iconByVerb (State.verb st) assets
+      H.div ! classes [cls "verb"] $ H.toMarkup $ T.toUpper $ State.verb st
+      H.div ! classes [cls "object"] $ H.toMarkup $ T.toUpper $ State.object st
 
 
 iconByVerb :: Text -> Assets -> Html
@@ -57,8 +48,9 @@ iconByVerb verb assets = do
     iconNameByVerb = M.fromList [
         ("create", "plus")
       , ("find", "search")
+      , ("go to", "arrow-right")
       ]
 
 
-classes l = A.class_ $ toValue $ L.intercalate " " l
+classes l = A.class_ $ H.toValue $ L.intercalate " " l
 cls s = "comp-state-button-" <> s 

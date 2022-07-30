@@ -29,27 +29,32 @@ import qualified Data.Text as T (pack, toLower)
 import           Data.Text (Text)
 import           GHC.Generics
 
-import           Elea.Base (Object (..))
+import           Elea.Base (
+    Computer (..), existence
+  , Object (..)
+  )
 import           Elea.Index (ComputerIndex)
 
 
 -- | Computer Chooser
 data ComputerChooser = ComputerChooser {
-    state         :: State
-  , computerIndex :: ComputerIndex
-  , object        :: Object
+    state            :: State
+  , selectedComputer :: Computer
+  , computerIndex    :: ComputerIndex
+  , object           :: Object
 }
 
 instance ToJSON ComputerChooser where
   toJSON computerChooser = JSON.object [
-      "state"  .= toJSON computerChooser.state
-    , "object" .= computerChooser.object
+      "state"             .= computerChooser.state
+    , "object"            .= computerChooser.object
+    , "selected_computer" .= computerChooser.selectedComputer
     ]
 
 
 -- | Create a new Computer Chooser with default values
 new :: ComputerIndex -> Object -> ComputerChooser
-new compIdx obj = ComputerChooser List compIdx obj
+new compIdx obj = ComputerChooser List existence compIdx obj
 
 
 -- | State

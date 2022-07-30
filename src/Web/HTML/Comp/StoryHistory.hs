@@ -22,6 +22,7 @@ import           Data.Assets (Assets (..))
 import           Data.Icon (iconSVGWithName)
 import qualified Web.HTML.Alpine as X
 import qualified Web.HTML.Comp.StateButton as StateButton (html)
+import qualified Web.Types.State as State (State (..))
 
 import Elea.Base (Story (..))
 
@@ -60,7 +61,7 @@ storyHTML mStory assets = do
 findStoryHTML :: Assets -> Html
 findStoryHTML assets = 
   H.div ! classes [cls "find-story"] $ do
-    StateButton.html "FIND" "STORY" assets
+    StateButton.html State.MainFindStory assets
 
 
 historyHTML :: Story -> Assets -> Html
