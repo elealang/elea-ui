@@ -2,12 +2,8 @@ server:
   port: 9000
   icons_dir: assets/icons/
 elea:
-  computers:
+  servers:
     - name: Browser Local Storage
-      for_object: computer
       uri: browser
-      resources: []
-    - name: Computer World
-      for_object: computer
+    - name: Elea World Computer
       uri: world.elea.computer
-      resources: []

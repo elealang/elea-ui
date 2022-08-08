@@ -6,15 +6,15 @@
 
 {-# LANGUAGE OverloadedStrings #-}
 
-module Main where
+module UI.Main where
 
 
 import qualified Data.Yaml as Y
 
-import UI.Config (ConfigFromFileErr (..), configFromFile)
-import UI.Data.Assets (Assets (Assets))
-import qualified UI.Data.Icon as I (load)
-import UI.Server as Web (runServer)
+import Config (ConfigFromFileErr (..), configFromFile)
+import Data.Assets (Assets (Assets))
+import qualified Data.Icon as I (load)
+import Web.Server as Web (runServer)
 
 
 main :: IO ()

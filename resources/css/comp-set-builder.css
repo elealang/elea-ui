@@ -1,0 +1,87 @@
+
+@import 'vars.css';
+
+
+.comp-set-builder {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32px 40px 32px 40px;
+    padding: 40px 28px;
+}
+
+.comp-set-builder-set {
+    position: relative;
+    width: 100%;
+
+    margin-top: 20px;
+}
+
+
+.set {
+    border: 1px solid #D2D6DD;
+    margin-right: 20px;
+    box-shadow: 0px 1px 6px 1px #E4E9F2;
+    border: 1px solid #D4D9E2;
+    border-radius: 2px;
+
+    /* Muuri required */
+    position: absolute;
+}
+
+.set-content {
+    position: relative;
+
+}
+
+.set-server:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 9px 1px #D4D9E2;
+}
+
+.set-kind {
+
+    padding: 0 20px;
+    height: 32px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #82878F;
+    background: #F7FAFF;
+
+    border-bottom: 1px dashed #42474F;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.set-server-name {
+    padding: 4px 20px;
+    padding-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #32373F;
+    background: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.set-value {
+    padding: 4px 20px;
+    padding-bottom: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #82878F;
+    color: var(--color-blue);
+    background: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.set-story-name-regex {
+    padding: 12px 20px;
+}

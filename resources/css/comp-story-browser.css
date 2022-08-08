@@ -1,0 +1,76 @@
+
+@import 'vars.css';
+
+
+.comp-story-browser {
+    width: 100%;
+    padding: 40px;
+}
+
+.comp-story-browser-header {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.comp-story-browser-search {
+    width: 100%;
+    border-bottom: 1px solid #E2E6EA;
+    padding: 0px 0;
+}
+
+.comp-story-browser-search-section {
+    border-bottom: 1px dashed #C1C6CF;
+
+    padding-left: 40px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.comp-story-browser-search-section:last-child {
+}
+
+
+.comp-story-browser-search-server-content-container {
+    flex: 1;
+
+}
+.comp-story-browser-search .comp-set-builder {
+    border: 1px dashed #51565F;
+    border: none;
+    border-radius: 0px;
+    height: 56px;
+    width: 880px;
+}
+
+.comp-story-browser-search-server-button-container {
+
+}
+
+.comp-story-browser-search-server-set {
+}
+
+.comp-story-browser-search-story-set {
+}
+
+.comp-story-browser-search-computer-set {
+}
+
+.comp-story-browser-search-compute {
+}
+
+.comp-story-browser-search-computer {
+}
+
+.comp-story-browser-results {
+    min-height: 500px;
+}

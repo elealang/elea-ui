@@ -1,0 +1,130 @@
+
+.page-elea {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.page-elea-header-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-size: 0.95em;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.page-elea-header-title-name {
+    color: #181F27;
+}
+
+.page-elea-header-title-description {
+    margin-left: 0.3rem;
+    color: #939FAF;
+}
+
+.page-elea-header-story {
+    height: 100%;
+    width: 320px;
+
+    box-sizing: border-box;
+    border-right: 1px solid #D4D9E2;
+    padding-left: 40px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.page-elea-header-story:hover {
+    cursor: pointer;
+}
+
+.page-elea-header-story .comp-state-button {
+    border: none;
+    box-shadow: none;
+    align-self: center;
+    padding: 0;
+    background: none;
+}
+
+.page-elea-header-story .comp-state-button:hover {
+    box-shadow: none;
+}
+
+
+.page-elea-header-story-load-button svg {
+    width: 20px;
+    height: 20px;
+    fill: #939FAF;
+}
+
+.page-elea-define {
+    background: white;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
+
+}
+
+.page-elea-define-section {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    border-bottom: 1px dashed #51555D;
+}
+
+.page-elea-editor-sidebar {
+    width: 60px;
+    border-right: 1px dashed #C4C9D2;
+    padding-top: 28px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-elea-editor-sidebar-icon {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 4px;
+    margin-top: 5px;
+
+    border: 1px solid #D4D9E2;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    background: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-elea-editor-sidebar-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--color-pink);
+    fill: black;
+    fill: #343942;
+    fill: #C4C9D2;
+}
+
+.page-elea-compute {
+    border-top: 1px dashed #D4D9E2;
+    background: #F7FAFF;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
+
+    padding-bottom: 120px;
+}
+
+.page-elea-compute-section {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}

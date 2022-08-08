@@ -45,65 +45,49 @@ ul {
     top: 0;
     width: 100%;
     background: white;
-    padding: 0 40px;
     z-index: 10000;
+
+    box-sizing: border-box;
 
     display: flex;
     align-items: center;
 
-    border-bottom: 1px solid #E5ECF6;
+    border-bottom: 1px solid #D5DCE6;
     box-shadow: 0px 3px 9px 5px #E5ECF645; 
 }
 
-.page-header .comp-view-switcher {
+.page-header-left {
+    height: 100%;
     width: 34%;
     align-self: center;
+    justify-content: flex-start;
 }
 
-.page-header .header-home {
+.page-header-center {
+    height: 100%;
     width: 34%;
     align-self: center;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.page-title {
+.page-header-right {
+    height: 100%;
     width: 32%;
 
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.page-title-name {
-
-    font-weight: 800;
-    font-size: 1rem;
-
-    color: #181F27;
-}
-
-.page-title-description {
-    margin-left: 0.3rem;
-
-    font-weight: 700;
-    font-size: 1rem;
-
-    color: #939FAF;
-}
-
-.page-account {
-    width: 32%;
-    padding: 0 20px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    justify-content: flex-end
 }
 
 .page-content {
     position: relative;
 
-    width: 100%;
     height: 100%;
+    flex: 1;
 
     display: flex;
     flex-direction: row;
@@ -190,7 +174,6 @@ ul {
     height: 24px; 
     fill: var(--color-blue);
     fill: #42474F;
-    fill: #181F27;
     margin-top: 4px;
 }
 
@@ -214,7 +197,9 @@ ul {
     position: sticky;
     top: 0;
 
-    width: 400px;
+    width: 320px;
+    box-sizing: border-box;
+
     background: white;
     background: #F4F7FB;
     height: 100%;
@@ -226,6 +211,7 @@ ul {
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
 
 }
+
 
 .page-story-header {
     border-bottom: 1px solid #C3C8D2;
@@ -256,4 +242,22 @@ ul {
     font-weight: 400;
     font-family: "Ringside Regular SSm A", "Ringside Regular SSm B";
     font-weight: 700;
+}
+
+
+.page-modal-pane {
+    width: 320px;
+    height: 100%;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 500000;
+
+    box-shadow: -2px 0 6px 0 #E4E9F2;
+
+    box-shadow: -2px 0px 9px 5px #E5ECF645; 
+
+    background: white;
+    border-left: 1px solid #D5DCE6;
 }

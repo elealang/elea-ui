@@ -1,0 +1,91 @@
+
+@import 'vars.css';
+
+.header-home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.comp-home {
+    width: 100%;
+    padding: 0 40px;
+    background: #F7FAFF;
+    background: white;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B2B7BF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.comp-home-main {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.comp-home-main-text {
+    margin-top: -40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 3.6rem;
+    font-weight: 800;
+
+    background: linear-gradient(55deg, var(--color-blue), #52ff39);
+    background: linear-gradient(55deg, var(--color-blue), var(--color-pink));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.comp-home-main-examples {
+    width: 800px;
+
+    margin: 80px 0 80px 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.comp-home-main-examples .comp-story-link {
+    margin-right: 1rem;
+}
+
+.comp-home-main-actions {
+    margin: 0 40px;
+    height: 160px;
+    border: 2px dashed #D2D8E3;
+    border-radius: 12px;
+    width: 700px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.comp-home-main-actions-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.comp-home-main-actions-buttons .comp-state-button {
+    margin: 0 20px;
+}
+
+.comp-home-main-right {
+    width: 50%;
+}
+
+.comp-home-help {
+    border-top: 1px dashed #939FAF;
+    background: white
+}
