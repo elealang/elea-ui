@@ -33,8 +33,8 @@ html :: SetKind -> Assets -> Html
 html setKind assets = do
   H.div ! A.class_ "comp-set-builder" $ do
     H.div ! classes [cls "content"] $ do
-      H.div ! classes [cls "header", "comp-header"] $ do
-        StateButton.html StateButton.Sidebar (eleaState setKind) assets
+      --H.div ! classes [cls "header", "comp-header"] $ do
+        --StateButton.html StateButton.Sidebar (eleaState setKind) assets
       H.div ! classes [cls "set", cls setKindClass] $ do
         defaultServerSetsHtml setKind
     H.script $ 
@@ -54,7 +54,7 @@ defaultServerSetsHtml Set.Servers = do
   serverSetHTML Server.Internet
   serverSetHTML Server.EleaClient
 defaultServerSetsHtml Set.Stories = storySetHTML 
-defaultServerSetsHtml Set.Computers = return ()
+defaultServerSetsHtml Set.Computers = computerSetHTML
 
 
 serverSetHTML :: Server.Kind -> Html
@@ -73,17 +73,25 @@ serverSetHTML serverKind = do
 serverSetInternetHTML :: Html
 serverSetInternetHTML = do
   H.div ! A.class_ "set-server-internet" $ do
-    H.div ! A.class_ "set-server-internet-name set-server-name" $ "Elea World"
-    H.div ! A.class_ "set-server-internet-uri set-value" $ "world.elea.computer"
+    H.table $ do
+      H.tr $ do
+        H.th ! A.class_ "set-server-name-label" $ "Name"
+        H.td ! A.class_ "set-server-name-value" $ "EleaWorld" 
+      H.tr $ do
+        H.th ! A.class_ "set-server-uri-label" $ "URI"
+        H.td ! A.class_ "set-server-uri-value set-link" $ "world.elea.computer"
 
 
 serverSetEleaClientHTML :: Html
 serverSetEleaClientHTML = do
   H.div ! A.class_ "set-server-elea-client" $ do
-    H.div ! A.class_ "set-server-elea-client-name set-server-name" $
-      "Browser"
-    H.div ! A.class_ "set-server-internet-uri set-value" $ 
-      "/computer/local-storage/story"
+    H.table $ do
+      H.tr $ do
+        H.th ! A.class_ "set-server-name-label" $ "Name"
+        H.td ! A.class_ "set-server-name-value" $ "Browser" 
+      H.tr $ do
+        H.th ! A.class_ "set-server-uri-label" $ "URI"
+        H.td ! A.class_ "set-server-uri-value set-link" $ "/computer/local-storage/story"
 
 
 storySetHTML :: Html
@@ -97,7 +105,31 @@ storySetHTML = do
 storySetNameHTML :: Html
 storySetNameHTML = do
   H.div ! A.class_ "set-story-name" $ do
-    H.div ! A.class_ "set-story-name-regex set-value" $ "any"
+    H.table $ do
+      H.tr $ do
+        H.th ! A.class_ "set-story-name-label" $ "Name"
+        H.td ! A.class_ "set-story-name-value" $ "any" 
+
+
+computerSetHTML :: Html
+computerSetHTML = do
+  H.div ! A.class_ "set-computer set" $ do
+    H.div ! A.class_ "set-computer-content set-content" $ do
+      H.div ! A.class_ "set-computer-kind set-kind" $ "abstraction"
+      computerSetAbsHTML
+
+
+computerSetAbsHTML :: Html
+computerSetAbsHTML = do
+  H.div ! A.class_ "set-computer-abstraction" $ do
+    H.table $ do
+      H.tr $ do
+        H.th ! A.class_ "set-computer-abs-label" $ "Name"
+        H.td ! A.class_ "set-computer-abs-value" $ "any" 
+      H.tr $ do
+        H.th ! A.class_ "set-computer-name-label" $ "Value"
+        H.td ! A.class_ "set-computer-name-value" $ "any" 
+
 
 
 -- | HTML helper combinators 

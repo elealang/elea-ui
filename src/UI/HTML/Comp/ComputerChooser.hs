@@ -33,8 +33,6 @@ import           Elea.Server (Server)
 html :: ComputerChooser -> Assets -> Html
 html chooser assets = do
   X.html chooser "comp-computer-chooser" $ do
-    H.div ! classes [(cls "header"), "comp-header"] $ do
-      StateButton.html StateButton.Inline (eleaState chooser.object) assets
     H.div ! A.class_ ((cls "pane") <> " is-pane") $ do
       listStateHTML chooser.servers assets
       viewStateHTML assets

@@ -15,7 +15,7 @@
 
     text-decoration: none;
 
-    font-weight: 700;
+    font-weight: 800;
     font-size: 0.95rem;
 }
 
@@ -48,7 +48,7 @@
 
 .comp-state-button-verb.type-inline {
     color: var(--color-pink);
-    padding-right: 2px;
+    padding-right: 4px;
 }
 
 

@@ -82,6 +82,7 @@ iconByVerb verb assets = do
       , ("edit", "edit")
       , ("find", "search")
       , ("collect", "collect")
+      , ("sort", "sort")
       ]
 
 

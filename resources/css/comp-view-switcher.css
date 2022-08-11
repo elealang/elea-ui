@@ -2,11 +2,14 @@
 @import 'vars.css';
 
 .comp-view-switcher {
+    height: 100%;
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding-right: 32px;
+    justify-content: flex-start;
+    padding-left: 28px;
+
 }
 
 .comp-view-switcher-button {
@@ -16,7 +19,6 @@
     justify-content: center;
 
     font-weight: 800;
-    font-size: 1rem;
     font-size: 0.95em;
 }
 
@@ -26,7 +28,7 @@
 
 .comp-view-switcher-verb {
     padding: 0px 0px;
-    padding-right: 2px;
+    padding-right: 4px;
 
     display: flex;
     flex-direction: row;
@@ -38,6 +40,8 @@
 
 .comp-view-switcher-icon svg {
     fill: #91959F;
+    fill: #939FAF;
+    margin-bottom: 0.1rem;
 }
 
 .comp-view-switcher-icon-expand svg {
@@ -80,7 +84,10 @@
 
     background: white;
     background: #F7FAFE;
+    background: #F7F9FC;
     padding: 0 40px 40px 40px;
+    height: 100vh;
+
 }
 
 

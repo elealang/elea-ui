@@ -6,6 +6,8 @@
 }
 
 .page-elea-header-title {
+    padding-right: 28px;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -22,6 +24,11 @@
 .page-elea-header-title-description {
     margin-left: 0.3rem;
     color: #939FAF;
+
+    background: linear-gradient(55deg, #83899F, #939FAF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .page-elea-header-story {
@@ -29,16 +36,16 @@
     width: 320px;
 
     box-sizing: border-box;
-    border-right: 1px solid #D4D9E2;
-    padding-left: 40px;
+    border-left: 1px solid #D4D9E2;
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 800;
+    color: #545962;
 }
 
 .page-elea-header-story:hover {
@@ -64,28 +71,110 @@
     fill: #939FAF;
 }
 
-.page-elea-define {
+.page-elea-section-header {
+    height: 32px;
+    padding-left: 28px;
+
+    background: #939FAF;
+    background: #194690;
+    background: #595D6D;
+    background: #1d52a8EA;
+    border-bottom: 1px solid #C4C9D2;
+    border-top: 1px solid #194690;
+    border-top: 1px solid #494D5D;
+    border: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #040A23;
+    color: white;
+}
+
+.page-elea-define-home-header {
+    height: 40px;
+
+    background: #1d52a8EA;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+}
+
+.page-elea-results .page-elea-section-header {
+    background: #494D5D;
+    background: #595D6D;
+}
+
+.page-elea-results .page-elea-section-workspace {
+    padding-bottom: 120px;
+}
+
+.page-elea-section-header-icon {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.page-elea-section-header-icon svg {
+    width: 2.1rem;
+    height: 2.1rem;
+    fill: #FFFFFF;
+}
+
+.page-elea-section-header-icon:hover {
+    cursor: pointer;
+}
+
+.page-elea-section-workspace {
+    padding-left: 40px;
+    flex: 1;
+    padding-top: 28px;
+    padding-bottom: 40px;
+}
+
+.page-elea-define .page-elea-section-workspace {
     background: white;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
-
 }
 
 .page-elea-define-section {
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    justify-content: stretch;
+}
 
-    border-bottom: 1px dashed #51555D;
+.page-elea-define-section:not(:last-child) {
+    border-bottom: 1px dashed #D1D4DE;
 }
 
 .page-elea-editor-sidebar {
-    width: 60px;
-    border-right: 1px dashed #C4C9D2;
-    padding-top: 28px;
+    width: 160px;
+    border-right: 1px solid #C4C9D2;
+    padding-top: 26px;
+    padding-left: 28px;
+    box-sizing: border-box;
+    background: #F7F9FC;
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.page-elea-editor-sidebar-type {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #939F9F;
+}
+
+.page-elea-editor-sidebar-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #434F4F;
 }
 
 .page-elea-editor-sidebar-icon {
@@ -117,14 +206,16 @@
 
 .page-elea-compute {
     border-top: 1px dashed #D4D9E2;
-    background: #F7FAFF;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
-
-    padding-bottom: 120px;
 }
 
 .page-elea-compute-section {
     display: flex;
     flex-direction: row;
     align-items: stretch;
+}
+
+.page-elea-compute .page-elea-section-workspace {
+    background: #F7F9FC;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
+
 }

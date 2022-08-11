@@ -23,11 +23,11 @@ import Elea.Base (Story (..))
 html :: Maybe Story -> Assets -> Html
 html _ _ = do
   H.div ! A.class_ "comp-story-history" $ do
-    return ()
+    H.div ! classes [cls "arrows"] $ return ()
 
 -- | HTML helper combinators 
---classes :: [String] -> H.Attribute
---classes l = A.class_ $ H.toValue $ unwords l
+classes :: [String] -> H.Attribute
+classes l = A.class_ $ H.toValue $ unwords l
 
---cls :: String -> String
---cls s = "comp-story-history-" <> s 
+cls :: String -> String
+cls s = "comp-story-history-" <> s 

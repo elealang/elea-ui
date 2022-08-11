@@ -51,9 +51,12 @@ ul {
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     border-bottom: 1px solid #D5DCE6;
+    border: none;
     box-shadow: 0px 3px 9px 5px #E5ECF645; 
+    box-shadow: none;
 }
 
 .page-header-left {
@@ -75,7 +78,6 @@ ul {
 
 .page-header-right {
     height: 100%;
-    width: 32%;
 
     display: flex;
     flex-direction: row;
@@ -130,12 +132,12 @@ ul {
 
 
 .is-pane {
-    margin-top: 20px;
-
     background: white;
 
     box-shadow: 0px 1px 6px 1px #E4E9F2;
+    box-shadow: none;
     border: 1px solid #D4D9E2;
+    border: 1px solid #B7BBC4;
 }
 
 
@@ -145,7 +147,13 @@ ul {
     height: 60px;
     bottom: 0px;
     left: 0px;
-    padding: 0 40px;
+    padding: 0 28px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: transparent;
 }
 
 .left-pane-button {
@@ -156,7 +164,7 @@ ul {
     background: white;
 
     box-shadow: 0px 1px 6px 1px #E4E9F2;
-    border: 1px solid #D4D9E2;
+    border: 1px solid #B7BBC4;
     z-index: 12000;
 
     display: flex;
@@ -206,7 +214,7 @@ ul {
 
     box-shadow: 1px 0px 6px 1px #E4E9F2;
     box-shadow: none;
-    border-right: 1px solid #C3C8D2;
+    border-left: 1px solid #C4C9D2;
     background-image: none;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
 
@@ -250,8 +258,8 @@ ul {
     height: 100%;
 
     position: absolute;
-    right: 0;
-    top: 0;
+    left: 0;
+    top: -60px;
     z-index: 500000;
 
     box-shadow: -2px 0 6px 0 #E4E9F2;

@@ -38,8 +38,6 @@ html :: Assets -> Html
 html assets = do
   H.div ! A.class_ "comp-story-editor" $ do
     H.div ! A.class_ "comp-story-editor-content" $ do
-      H.div ! A.class_ "comp-story-editor-header comp-header" $ do
-        StateButton.html StateButton.Inline Elea.EleaEditStory assets
       H.div ! A.class_ "comp-story-editor-pane is-pane" $ do
         H.div ! A.class_ "comp-story-editor-form" $ do
           Form.html assets form

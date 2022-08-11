@@ -51,6 +51,10 @@ html script pageHtml = H.docTypeHtml $ do
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
            ! A.href "/static/css/comp-form.css"
+    -- CSS/Component: List
+    H.link ! A.rel "stylesheet" 
+           ! A.type_ "text/css" 
+           ! A.href "/static/css/comp-list.css"
     -- CSS/Component: ProgramEditor
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
@@ -59,6 +63,10 @@ html script pageHtml = H.docTypeHtml $ do
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
            ! A.href "/static/css/comp-set-builder.css"
+    -- CSS/Component: Sorter
+    H.link ! A.rel "stylesheet" 
+           ! A.type_ "text/css" 
+           ! A.href "/static/css/comp-sorter.css"
     -- CSS/Component: StateButton
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
@@ -89,6 +97,8 @@ html script pageHtml = H.docTypeHtml $ do
     H.preEscapedString "<script defer src='/static/js/htmx.min.js'></script>"
     -- Muuri
     H.preEscapedString "<script src='https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js'></script>"
+    -- Elea browser server 
+    H.preEscapedString "<script src='/static/js/computer-story.js'></script>"
     -- Fix Firefox refresh issue
     H.preEscapedString "<script>let FF_FOUC_FIX;</script>"
     H.preEscapedText $ "<script>" <> script <> "</script>"

@@ -68,8 +68,10 @@ executable elea-ui
 			UI.HTML.Comp.ComputerChooser
 			UI.HTML.Comp.Form
 			UI.HTML.Comp.Home
+			UI.HTML.Comp.List
 			UI.HTML.Comp.ProgramEditor
 			UI.HTML.Comp.SetBuilder
+			UI.HTML.Comp.Sorter
 			UI.HTML.Comp.StateButton
 			UI.HTML.Comp.StoryBrowser
 			UI.HTML.Comp.StoryEditor

@@ -29,9 +29,9 @@ html script st page = do
     X.html page "page" $ do
       headerHTML page.header
       H.div ! A.class_ "page-main" $ do
-        sidebarHTML page.sidebarHTML
-        H.div ! A.class_ "page-content" $ page.contentHTML
         modalPaneHTML st
+        H.div ! A.class_ "page-content" $ page.contentHTML
+        sidebarHTML page.sidebarHTML
       footerHTML page
    
 
@@ -41,9 +41,8 @@ headerHTML header = do
   H.div ! A.class_ "page-header" $ do
     H.div ! A.class_ "page-header-left" $
       header.leftHTML
-    H.div ! A.class_ "page-header-center" $
+    H.div ! A.class_ "page-header-right" $ do
       header.centerHTML
-    H.div ! A.class_ "page-header-right" $
       header.rightHTML
     
 

@@ -1,0 +1,10 @@
+
+@import 'vars.css';
+
+
+.comp-sorter {
+    box-sizing: border-box;
+    padding: 28px 28px 40px 28px;
+    flex: 1;
+}
+
