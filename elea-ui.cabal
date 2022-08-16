@@ -68,6 +68,7 @@ executable elea-ui
 			UI.HTML.Comp.ComputerChooser
 			UI.HTML.Comp.Form
 			UI.HTML.Comp.Home
+			UI.HTML.Comp.Link
 			UI.HTML.Comp.List
 			UI.HTML.Comp.ProgramEditor
 			UI.HTML.Comp.SetBuilder
@@ -76,7 +77,6 @@ executable elea-ui
 			UI.HTML.Comp.StoryBrowser
 			UI.HTML.Comp.StoryEditor
 			UI.HTML.Comp.StoryHistory
-			UI.HTML.Comp.StoryLink
 			UI.HTML.Comp.ViewSwitcher
 			UI.Elea.Computer.LocalStorage
 			UI.Server

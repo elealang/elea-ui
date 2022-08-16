@@ -79,19 +79,12 @@ pageHTML page _assets = do
     resultsHTML page.state _assets
 
 
-
 headerStoryHTML :: Assets -> Html
 headerStoryHTML _assets = do
-  H.div ! A.class_ "page-elea-header-story" 
-        ! H.customAttribute "x-data" "{ show_button: false }"
-        ! X.onEnter "show_button = true"
-        ! X.onLeave "show_button = false" $ do
-    H.div ! A.class_ "page-elea-header-story-name"
-          ! X.show_ "!show_button" $
-      "My Dev Story"
-    H.div ! A.class_ "page-elea-header-state-button"
-          ! X.show_ "show_button" $
-      StateButton.html StateButton.Inline Elea.IndexFindStory _assets
+  H.div ! A.class_ "page-elea-header-story" $ do
+    H.div ! A.class_ "page-elea-header-story-menu-button" $
+      H.preEscapedText $ fromJust $ iconSVGWithName "open" _assets.iconIndex
+    H.div ! A.class_ "page-elea-header-story-name" $ "My Dev Story"
 
 
 headerEleaHTML :: Html
@@ -112,7 +105,7 @@ defineHTML st a = do
         Home.html a
       Elea.EleaCreateStory -> do
         headerHTML
-        defineSectionHTML "CREATE" "STORY" (StoryEditor.html a) a
+        defineSectionHTML "NEW" "STORY" (StoryEditor.html a) a
       Elea.IndexFindStory  -> do
         headerHTML
         defineSectionHTML "SET OF" "SERVERS" (SetBuilder.html Set.Servers a) a

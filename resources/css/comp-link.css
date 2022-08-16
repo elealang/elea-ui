@@ -1,0 +1,84 @@
+
+@import 'vars.css';
+
+.comp-story-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 4px 8px;
+    border: 1px dashed transparent;
+    border-radius: 4px;
+    margin-top: 0px;
+}
+
+.comp-story-link:hover  {
+    cursor: pointer;
+    border: 1px dashed #92959F;
+}
+
+.comp-story-link:hover .comp-story-link-story-name {
+    color: #434953;
+    color: var(--color-blue);
+}
+
+.comp-story-link:hover .comp-story-link-icon svg {
+    fill: #636973;
+    fill: var(--color-blue);
+}
+
+.comp-story-link-story-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333943;
+    color: #3e4159;
+}
+
+.comp-story-link-icon svg {
+    width: 2rem;
+    height: 2rem;
+    fill: #A3A9B3;
+    fill: #9b9eb2;
+    margin-top: 0.2rem;
+    margin-right: 0.4rem;
+}
+
+.comp-story-link-icon.emoji-learn svg {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.comp-story-link-icon.emoji-book svg {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.comp-story-link-icon.emoji-technology svg {
+    width: 1.9rem;
+    height: 1.9rem;
+}
+
+.comp-story-link-icon.emoji-meditation svg {
+    width: 2.1rem;
+    height: 2.1rem;
+}
+
+/*.comp-story-link-icon.emoji-video-game svg {*/
+    /*width: 2rem;*/
+    /*height: 2rem;*/
+/*}*/
+
+/*.comp-story-link-icon.emoji-religion svg {*/
+    /*width: 1.9rem;*/
+    /*height: 1.9rem;*/
+/*}*/
+
+/*.comp-story-link-icon.emoji-shopping svg {*/
+    /*width: 2rem;*/
+    /*height: 2rem;*/
+/*}*/
+
+/*.comp-story-link-icon.emoji-thoughts svg {*/
+    /*width: 2rem;*/
+    /*height: 2rem;*/
+/*}*/

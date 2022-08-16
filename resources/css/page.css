@@ -16,6 +16,7 @@ body {
     margin: 0;
 
     font-family: "Ringside Regular SSm A", "Ringside Regular SSm B";
+    font-family: Inter, sans-serif;
 
     background: #F4F7FB;
 }
@@ -177,6 +178,10 @@ ul {
     cursor: pointer;
 }
 
+.left-pane-button:hover svg {
+    fill: var(--color-blue);
+}
+
 .left-pane-button svg {
     width: 24px; 
     height: 24px; 
@@ -214,7 +219,6 @@ ul {
 
     box-shadow: 1px 0px 6px 1px #E4E9F2;
     box-shadow: none;
-    border-left: 1px solid #C4C9D2;
     background-image: none;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
 
@@ -249,6 +253,7 @@ ul {
     font-size: 1.1rem;
     font-weight: 400;
     font-family: "Ringside Regular SSm A", "Ringside Regular SSm B";
+    font-family: Inter, sans-serif;
     font-weight: 700;
 }
 

@@ -23,6 +23,7 @@
 
     background: #F2F6FB;
     background: #F3F5F9;
+    background: #EEF0F8;
 }
 
 .comp-form-field-app-id-refresh-button {
@@ -63,7 +64,6 @@
 
     font-size: 1.1rem;
     font-weight: 400;
-    font-family: "Ringside Regular SSm A", "Ringside Regular SSm B";
     font-weight: 400;
     padding: 0 12px;
 }
@@ -72,7 +72,6 @@
 .comp-form-field textarea {
     outline: none;
     resize: vertical;
-    font-family: "Ringside Regular SSm A", "Ringside Regular SSm B";
     font-weight: 400;
     border: 1px dashed #D2D7DF;
     border-bottom: 1px dashed #363A42;

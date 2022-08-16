@@ -54,6 +54,7 @@
 
 .comp-state-button-object.type-inline {
     color: #555A66;
+    color: var(--color-pink);
 }
 
 

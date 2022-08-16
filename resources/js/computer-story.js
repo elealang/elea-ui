@@ -61,30 +61,40 @@ window.Elea = {
 window.addEventListener("DOMContentLoaded", (event) => {
     const story = Elea.server.getComputer("computer.elea.software/story").getStory("my-dev-story");
 
-    console.log(localStorage);
 
     const arrowsElem = document.querySelector(".comp-story-history-arrows");
 
-    console.log(story);
+    const arrows = story.arrows;
 
-    story.arrows.forEach((arrow, index) => {
+    for (let i = arrows.length - 1; i >= 0; i--) {
+
+        arrow = arrows[i];
+        
         const arrowElem = document.createElement("div");
         arrowElem.classList.add("comp-story-history-arrow");
 
+        const arrowPosElem = document.createElement("div");
+        arrowPosElem.classList.add("comp-story-history-arrow-pos");
+
+        const arrowNegElem = document.createElement("div");
+        arrowNegElem.classList.add("comp-story-history-arrow-neg");
+
         const arrowIndexElem = document.createElement("div");
         arrowIndexElem.classList.add("comp-story-history-arrow-index");
-        arrowIndexElem.innerText = index;
+        arrowIndexElem.innerText = i;
 
         const arrowNameElem = document.createElement("div");
         arrowNameElem.classList.add("comp-story-history-arrow-name");
         arrowNameElem.innerText = arrow.name.toUpperCase();
 
-        arrowElem.append(arrowIndexElem);
-        arrowElem.append(arrowNameElem);
+        arrowPosElem.append(arrowIndexElem);
+        arrowPosElem.append(arrowNameElem);
 
-        console.log(arrowElem);
+        arrowElem.append(arrowPosElem);
+        arrowElem.append(arrowNegElem);
 
         arrowsElem.append(arrowElem);
-    }); 
+    }; 
+
 });
 

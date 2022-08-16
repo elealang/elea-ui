@@ -26,6 +26,10 @@
     cursor: pointer;
 }
 
+.comp-view-switcher-button:hover .comp-view-switcher-icon svg {
+    fill: #9b9eb2;
+}
+
 .comp-view-switcher-verb {
     padding: 0px 0px;
     padding-right: 4px;
@@ -40,7 +44,9 @@
 
 .comp-view-switcher-icon svg {
     fill: #91959F;
-    fill: #939FAF;
+    fill: #9397AF;
+    fill: #9b9eb2;
+    fill: #bdbecc;
     margin-bottom: 0.1rem;
 }
 
@@ -64,6 +70,9 @@
     padding: 0px 0px;
     padding-left: 0px;
     color: #3A3F48;
+    color: #35384c;
+    color: #2d2f40;
+    color: var(--color-pink);
 }
 
 
@@ -85,6 +94,7 @@
     background: white;
     background: #F7FAFE;
     background: #F7F9FC;
+    background: #eeeff2;
     padding: 0 40px 40px 40px;
     height: 100vh;
 

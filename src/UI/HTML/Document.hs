@@ -19,10 +19,6 @@ html :: Text -> Html -> Html
 html script pageHtml = H.docTypeHtml $ do
   H.head $ do
     H.title "Elea"
-    -- Fonts
-    H.link ! A.rel "stylesheet" 
-           ! A.type_ "text/css" 
-           ! A.href "https://cloud.typography.com/6602898/6169632/css/fonts.css"
     -- CSS: Vars
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
@@ -51,6 +47,10 @@ html script pageHtml = H.docTypeHtml $ do
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
            ! A.href "/static/css/comp-form.css"
+    -- CSS/Component: Link
+    H.link ! A.rel "stylesheet" 
+           ! A.type_ "text/css" 
+           ! A.href "/static/css/comp-link.css"
     -- CSS/Component: List
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
@@ -83,20 +83,16 @@ html script pageHtml = H.docTypeHtml $ do
     H.link ! A.rel "stylesheet"
            ! A.type_ "text/css" 
            ! A.href "/static/css/comp-story-history.css"
-    -- CSS/Component: StoryLink
-    H.link ! A.rel "stylesheet" 
-           ! A.type_ "text/css" 
-           ! A.href "/static/css/comp-story-link.css"
     -- CSS/Component: ViewSwitcher
     H.link ! A.rel "stylesheet" 
            ! A.type_ "text/css" 
            ! A.href "/static/css/comp-view-switcher.css"
     -- Alpine
-    H.preEscapedString "<script defer src='https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js'></script>"
+    H.preEscapedString "<script defer src='/static/js/alpine.min.js'></script>"
     -- HTMX
     H.preEscapedString "<script defer src='/static/js/htmx.min.js'></script>"
     -- Muuri
-    H.preEscapedString "<script src='https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js'></script>"
+    H.preEscapedString "<script src='static/js/muuri.min.js'></script>"
     -- Elea browser server 
     H.preEscapedString "<script src='/static/js/computer-story.js'></script>"
     -- Fix Firefox refresh issue
