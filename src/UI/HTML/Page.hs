@@ -41,8 +41,9 @@ headerHTML header = do
   H.div ! A.class_ "page-header" $ do
     H.div ! A.class_ "page-header-left" $
       header.leftHTML
-    H.div ! A.class_ "page-header-right" $ do
+    H.div ! A.class_ "page-header-center" $ do
       header.centerHTML
+    H.div ! A.class_ "page-header-right" $ do
       header.rightHTML
     
 

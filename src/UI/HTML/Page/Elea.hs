@@ -83,16 +83,16 @@ headerStoryHTML :: Assets -> Html
 headerStoryHTML _assets = do
   H.div ! A.class_ "page-elea-header-story" $ do
     H.div ! A.class_ "page-elea-header-story-menu-button" $
-      H.preEscapedText $ fromJust $ iconSVGWithName "open" _assets.iconIndex
-    H.div ! A.class_ "page-elea-header-story-name" $ "My Dev Story"
+      H.preEscapedText $ fromJust $ iconSVGWithName "menu-vertical" _assets.iconIndex
+    H.div ! A.class_ "page-elea-header-story-info" $ do
+      H.div ! A.class_ "page-elea-header-story-name" $ "Browsing History"
 
 
 headerEleaHTML :: Html
 headerEleaHTML = do
   H.a ! A.class_ "page-elea-header-title" 
       ! A.href "/" $ do
-    H.div ! A.class_ "page-elea-header-title-name" $ "ELEA"
-    H.div ! A.class_ "page-elea-header-title-description" $ "ENGINE FOR ETHICAL CHANGE"
+    H.div ! A.class_ "page-elea-header-program-name" $ "Elea App"
 
 
 -- | Define HTML

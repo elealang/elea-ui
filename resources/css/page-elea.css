@@ -41,7 +41,7 @@
 
 .page-elea-header-story {
     height: 100%;
-    width: 320px;
+    width: 100%;
 
     box-sizing: border-box;
     border-left: 2px solid #E2E5EF;
@@ -52,12 +52,36 @@
     align-items: center;
     justify-content: space-between;
     padding-right: 20px;
+    padding-left: 0px;
 
-    font-size: 1.05rem;
     font-weight: 600;
-    color: #545962;
-    color: #3e4159;
+    font-size: 1.1rem;
+}
+
+.page-elea-header-story-info {
+    text-align: right;
+}
+
+.page-elea-header-story-name {
     color: #474a66;
+}
+
+.page-elea-header-story-name:hover  {
+    color: var(--color-pink);
+}
+
+.page-elea-header-program-name {
+    color: #9b9eb2;
+    color: #acaebf;
+    color: #474a66;
+    color: #267daf;
+    color: var(--color-blue);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.page-elea-header-program-name:hover  {
+    color: var(--color-pink);
 }
 
 .page-elea-header-story:hover {
@@ -65,14 +89,14 @@
 }
 
 .page-elea-header-story-menu-button {
-    padding-left: 11px;
+    padding-left: 6px;
     padding-right: 11px;
     margin-top: 0.3rem;
 }
 
 .page-elea-header-story-menu-button svg {
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 1.6rem;
+    height: 1.6rem;
     fill: #acaebf;
 }
 
@@ -118,6 +142,7 @@
     justify-content: center;
 
     font-weight: 700;
+    display: none;
 }
 
 /*.page-elea-results .page-elea-section-header {*/

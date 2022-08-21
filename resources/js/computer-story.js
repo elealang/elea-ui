@@ -79,6 +79,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
         const arrowNegElem = document.createElement("div");
         arrowNegElem.classList.add("comp-story-history-arrow-neg");
 
+        const addElem = document.createElement("div");
+        //addElem.append()
+        addElem.classList.add("comp-story-history-arrow-neg-add");
+        arrowNegElem.append(addElem);
+
         const arrowIndexElem = document.createElement("div");
         arrowIndexElem.classList.add("comp-story-history-arrow-index");
         arrowIndexElem.innerText = i;
