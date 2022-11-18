@@ -8,14 +8,14 @@
     justify-content: center;
 }
 
-.comp-home {
+.develop-home {
     width: 100%;
     background: #F7FAFF;
     background: white;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B2B7BF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-.comp-home-main {
+.develop-home-main {
     height: 100vh;
 
     display: flex;
@@ -25,7 +25,7 @@
 
 }
 
-.comp-home-main-text {
+.develop-home-main-text {
     margin-top: -80px;
     display: flex;
     flex-direction: row;
@@ -42,7 +42,7 @@
     color: transparent;
 }
 
-.comp-home-main-examples {
+.develop-home-main-examples {
     width: 800px;
     width: 720px;
 
@@ -54,11 +54,11 @@
     justify-content: center;
 }
 
-.comp-home-main-examples .comp-story-link {
+.develop-home-main-examples .comp-story-link {
     margin-right: 0rem;
 }
 
-.comp-home-main-actions {
+.develop-home-main-actions {
     margin: 0 40px;
     height: 160px;
     border: 2px dashed #D2D8E3;
@@ -71,14 +71,14 @@
     justify-content: center;
 }
 
-.comp-home-main-actions-buttons {
+.develop-home-main-actions-buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.comp-home-main-actions-buttons .comp-state-button.type-inline {
+.develop-home-main-actions-buttons .comp-state-button.type-inline {
     margin: 0 20px;
     border: 1px solid #D2D6DD;
     padding: 10px 24px;
@@ -86,23 +86,23 @@
     box-shadow: 0px 0px 6px 2px #E4E9F2AA;
 }
 
-/*.comp-home-main-actions-buttons .comp-state-button-object.type-inline {*/
+/*.develop-home-main-actions-buttons .comp-state-button-object.type-inline {*/
     /*color: #35384c;*/
 /*}*/
 
-/*.comp-home-main-actions-buttons .comp-state-button-verb.type-inline {*/
+/*.develop-home-main-actions-buttons .comp-state-button-verb.type-inline {*/
     /*color: #35384c;*/
 /*}*/
 
-.comp-home-main-actions-buttons .comp-state-button.type-inline:hover {
+.develop-home-main-actions-buttons .comp-state-button.type-inline:hover {
     box-shadow: 0px 0px 9px 3px #E4E9F2DD;
 }
 
-.comp-home-main-right {
+.develop-home-main-right {
     width: 50%;
 }
 
-.comp-home-help {
+.develop-home-help {
     border-top: 1px dashed #939FAF;
     background: white
 }

@@ -92,7 +92,7 @@ html script pageHtml = H.docTypeHtml $ do
     -- HTMX
     H.preEscapedString "<script defer src='/static/js/htmx.min.js'></script>"
     -- Muuri
-    H.preEscapedString "<script src='static/js/muuri.min.js'></script>"
+    --H.preEscapedString "<script src='static/js/muuri.min.js'></script>"
     -- Elea browser server 
     H.preEscapedString "<script src='/static/js/computer-story.js'></script>"
     -- Fix Firefox refresh issue

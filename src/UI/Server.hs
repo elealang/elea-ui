@@ -22,11 +22,7 @@ import Servant
 import UI.Data.Assets (Assets)
 import UI.Config (Config)
 import UI.API (API)
-import qualified UI.Handler as Handler (
-    pageHome
-  , pageCreateStory
-  , pageFindStory
-  )
+import qualified UI.Handler as Handler
 
 
 api :: Proxy API
@@ -35,10 +31,9 @@ api = Proxy
 
 server :: Config -> Assets -> Server API
 server config assets =  
-        Handler.pageHome config.elea assets
-   :<|> Handler.pageCreateStory config.elea assets
-   :<|> Handler.pageFindStory config.elea assets
-   :<|> serveDirectoryWebApp "resources/"
+        serveDirectoryWebApp "resources/"
+   :<|> Handler.pageHome
+   :<|> Handler.pageProgram assets
 
 
 app :: Config -> Assets -> Application

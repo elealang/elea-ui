@@ -19,11 +19,11 @@ import           UI.Data.Assets (Assets (..))
 import           UI.Data.Icon (iconSVGWithName)
 import qualified UI.HTML.Comp.SetBuilder as SetBuilder (html)
 import qualified UI.HTML.Comp.StateButton as StateButton (html, ButtonType (..))
-import qualified UI.Types.Elea as Elea (EleaState (..))
+-- import qualified UI.Types.Elea as Elea (EleaState (..))
 
-import           Elea.Base (Computer, Story)
-import           Elea.Index (ComputerIndex)
-import qualified Elea.Set as Set (SetKind (..))
+--import           Elea.Base (Computer, Story)
+--import           Elea.Index (ComputerIndex)
+--import qualified Elea.Set as Set (SetKind (..))
 
 
 -- | View HTML
@@ -31,8 +31,8 @@ html :: Assets -> Html
 html assets = do
   H.div ! A.class_ "comp-story-browser" $ do
     H.div ! classes [cls "content"] $ do
-      H.div ! classes [cls "header", "comp-header"] $ do
-        StateButton.html StateButton.Inline Elea.IndexFindStory assets
+      H.div ! classes [cls "header", "comp-header"] $ return ()
+        -- StateButton.html StateButton.Inline Elea.IndexFindStory assets
 
 
 --searchHTML :: Assets -> Html

@@ -11,7 +11,7 @@ module UI.Types.ComputerChooser (
     ComputerChooser (..)
   , State (..)
     -- Constructors
-  , new
+  -- , new
   ) where
 
 
@@ -28,32 +28,32 @@ import qualified Data.Aeson as JSON (
 import qualified Data.Text as T (pack, toLower)
 import           GHC.Generics
 
-import           Elea.Base (
-    Computer (..), existence
-  , Def (..)
-  )
-import           Elea.Server (Server)
+--import           Elea.Base (
+    --Computer (..), existence
+  --, Def (..)
+  --)
+--import           Elea.Server (Server)
 
 
 -- | Computer Chooser
 data ComputerChooser = ComputerChooser {
     state            :: State
-  , selectedComputer :: Computer
-  , servers          :: [Server]
-  , object           :: Def
+  --, selectedComputer :: Computer
+  --, servers          :: [Server]
+  -- , object           :: Def
 }
 
 instance ToJSON ComputerChooser where
   toJSON computerChooser = JSON.object [
       "state"             .= computerChooser.state
-    , "object"            .= computerChooser.object
-    , "selected_computer" .= computerChooser.selectedComputer
+   -- , "object"            .= computerChooser.object
+    -- , "selected_computer" .= computerChooser.selectedComputer
     ]
 
 
 -- | Create a new Computer Chooser with default values
-new :: [Server] -> Def -> ComputerChooser
-new = ComputerChooser List existence
+--new :: [Server] -> Def -> ComputerChooser
+--new = ComputerChooser List existence
 
 
 -- | State

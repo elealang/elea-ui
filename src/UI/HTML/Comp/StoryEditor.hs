@@ -22,7 +22,7 @@ import qualified Text.Blaze.Html5.Attributes as A
 import           UI.Data.Assets (Assets (..))
 import qualified UI.HTML.Comp.Form as Form (html)
 import qualified UI.HTML.Comp.StateButton as StateButton (html, ButtonType (..))
-import           UI.Types.Elea as Elea
+-- import           UI.Types.Elea as Elea
 import           UI.Types.Form (
     Form (..)
   , Field (..)

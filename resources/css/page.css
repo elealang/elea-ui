@@ -17,6 +17,7 @@ body {
 
     font-family: "Ringside Regular SSm A", "Ringside Regular SSm B";
     font-family: Inter, sans-serif;
+    font-family: Soehne, sans-serif;
 
     background: #F4F7FB;
 }
@@ -28,37 +29,125 @@ ul {
   margin: 0;
 }
 
-/* Page                                                                       */
+/* page                                                                       */
 /* -------------------------------------------------------------------------- */
 
 .page {
     position: relative;
     height: 100vh;
-}
 
-/* Page Header                                                                */
-/* -------------------------------------------------------------------------- */
+}
 
 .page-header {
 
-    position: fixed;
-    height: 64px;
+    position: sticky;
+    height: 60px;
     top: 0;
     width: 100%;
     background: white;
-    z-index: 10000;
+    z-index: 100000;
 
     box-sizing: border-box;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    align-items: stretch;
 
-    border-bottom: 1px solid #D5DCE6;
     border: none;
-    box-shadow: 0px 3px 9px 5px #E5ECF645; 
-    box-shadow: none;
+    box-shadow: 0px 3px 9px 5px #E5ECF685; 
+    border-bottom: 1px solid #CACED744;
 }
+
+.page-content {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.page-footer {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    z-index: 1000000;
+    bottom: 0px;
+    left: 0px;
+    padding: 0 28px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background: transparent;
+}
+
+/* page-program
+/* -------------------------------------------------------------------------- */
+
+.page-context {
+    width: 22%;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    background: white;
+    background: #F4F7FB;
+
+    box-shadow: 1px 0px 6px 1px #E4E9F2;
+    box-shadow: none;
+    background-image: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
+
+
+    border-right: 1px dotted #CACED7;
+}
+
+.page-context-header {
+    width: 22%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background: white;
+    height: 100%;
+}
+
+.page-context-header-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 20px;
+
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.page-context-header-divider svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.3rem;
+    fill: #787F97;
+}
+
+
+.page-context-header-button:hover {
+    cursor: pointer;
+    color: var(--color-pink);
+}
+
+/* page-state
+/* -------------------------------------------------------------------------- */
+
+.page-state {
+    flex: 1;
+    height: 100%;
+    overflow-y: scroll;
+}
+
 
 .page-header-left {
     height: 100%;
@@ -143,20 +232,6 @@ ul {
 }
 
 
-.page-footer {
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    bottom: 0px;
-    left: 0px;
-    padding: 0 28px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    background: transparent;
-}
 
 .left-pane-button {
     width: 40px; 
@@ -194,38 +269,6 @@ ul {
 
 /* Page Sidebar                                                               */
 /* -------------------------------------------------------------------------- */
-
-.page-main {
-    position: fixed;
-    top: 64px;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-}
-
-.page-sidebar {
-    position: sticky;
-    top: 0;
-
-    width: 28%;
-    box-sizing: border-box;
-
-    background: white;
-    background: #F4F7FB;
-    height: 100%;
-
-    box-shadow: 1px 0px 6px 1px #E4E9F2;
-    box-shadow: none;
-    background-image: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C2C7CF' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
-
-}
-
-
 .page-story-header {
     border-bottom: 1px solid #C3C8D2;
 }

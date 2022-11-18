@@ -23,10 +23,10 @@ import           UI.Data.Assets (Assets (..))
 import           UI.Data.Icon (iconSVGWithName)
 import qualified UI.HTML.Alpine as X
 import qualified UI.HTML.Comp.StateButton as StateButton (html, ButtonType (..))
-import           UI.Types.Elea as Elea
+-- import           UI.Types.Elea as Elea
 import           UI.Types.ComputerChooser (ComputerChooser)
 
-import           Elea.Server (Server)
+-- import           Elea.Server (Server)
 
 
 -- | Computer Chooser HTML
@@ -34,15 +34,16 @@ html :: ComputerChooser -> Assets -> Html
 html chooser assets = do
   X.html chooser "comp-computer-chooser" $ do
     H.div ! A.class_ ((cls "pane") <> " is-pane") $ do
-      listStateHTML chooser.servers assets
+      -- listStateHTML chooser.servers assets
+      listStateHTML assets
       viewStateHTML assets
-  where
-    eleaState _        = Elea.EleaComputeStory 
+  -- where
+  --   eleaState _        = Elea.EleaComputeStory 
  
 
 -- | List state HTML
-listStateHTML :: [Server] -> Assets -> Html 
-listStateHTML servers assets = do
+listStateHTML :: Assets -> Html 
+listStateHTML assets = do
   H.div ! A.class_ ((cls "list") <> " is-pane-state")
         ! X.show_ "state == 'list'" $ do
     H.div ! A.class_ (cls "pane-header") $ do
@@ -55,19 +56,19 @@ listStateHTML servers assets = do
         H.div ! A.class_ (cls "search-button") $ 
           H.preEscapedText $ fromJust $ iconSVGWithName "search" assets.iconIndex
     H.div ! A.class_ (cls "pane-content") $
-      H.div ! A.class_ (cls "search-result-list") $
-        forM_ servers $ computerHTML assets
-  where
-    computerHTML _assets server = do
-      let computerJSON = T.pack $ LBS.unpack $ encode server
-      H.div ! A.class_ (cls "search-result")
-            ! X.onClick ("state = 'view'; selected_computer = " <> computerJSON) $ do
-        H.div ! A.class_ (cls "search-result-info") $ do
-          H.div ! A.class_ (cls "search-result-name") $ H.toMarkup server.name.getServerName
-          H.div ! A.class_ (cls "search-result-domain") $ 
-            H.toMarkup server.uri
-        H.div ! A.class_ (cls "search-result-icon") $ do
-          H.preEscapedText $ fromJust $ iconSVGWithName "compute" assets.iconIndex
+      H.div ! A.class_ (cls "search-result-list") $ return ()
+        --forM_ servers $ computerHTML assets
+  --where
+    --computerHTML _assets server = do
+      --let computerJSON = T.pack $ LBS.unpack $ encode server
+      --H.div ! A.class_ (cls "search-result")
+            -- ! X.onClick ("state = 'view'; selected_computer = " <> computerJSON) $ do
+        --H.div ! A.class_ (cls "search-result-info") $ do
+          --H.div ! A.class_ (cls "search-result-name") $ H.toMarkup server.name.getServerName
+          --H.div ! A.class_ (cls "search-result-domain") $ 
+            --H.toMarkup server.uri
+        --H.div ! A.class_ (cls "search-result-icon") $ do
+          --H.preEscapedText $ fromJust $ iconSVGWithName "compute" assets.iconIndex
 
 -- | View state HTML
 viewStateHTML :: Assets -> Html 

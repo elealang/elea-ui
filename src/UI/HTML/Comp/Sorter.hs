@@ -19,13 +19,13 @@ import qualified Text.Blaze.Html5.Attributes as A
 
 import           UI.Data.Assets (Assets (..))
 import qualified UI.HTML.Comp.StateButton as StateButton (html, ButtonType (..))
-import qualified UI.Types.Elea as Elea
+-- import qualified UI.Types.Elea as Elea
 
-import           Elea.Base (Computer, Story)
-import           Elea.Index (ComputerIndex)
-import           Elea.Set (SetKind)
-import qualified Elea.Set as Set (SetKind (..))
-import qualified Elea.Server as Server (Kind (..))
+--import           Elea.Base (Computer, Story)
+--import           Elea.Index (ComputerIndex)
+--import           Elea.Set (SetKind)
+--import qualified Elea.Set as Set (SetKind (..))
+--import qualified Elea.Server as Server (Kind (..))
 
 
 -- | View HTML
@@ -33,8 +33,8 @@ html :: Assets -> Html
 html assets = do
   H.div ! A.class_ "comp-sorter" $ do
     H.div ! classes [cls "content"] $ do
-      H.div ! classes [cls "header", "comp-header"] $ do
-        StateButton.html StateButton.Sidebar Elea.SortStories assets
+      H.div ! classes [cls "header", "comp-header"] $ return ()
+        --StateButton.html StateButton.Sidebar Elea.SortStories assets
 
 
 storySetHTML :: Html

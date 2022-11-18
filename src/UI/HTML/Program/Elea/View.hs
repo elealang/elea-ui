@@ -1,10 +1,10 @@
 --
--- HTML.Comp.ComputerChooser
+-- HTML.Comp.View
 --
 
 {-# LANGUAGE OverloadedStrings #-}
 
-module UI.HTML.Comp.StoryHistory (
+module UI.HTML.Program.Elea.View (
     html
   ) where
 
@@ -15,19 +15,19 @@ import           Text.Blaze.Html5 ((!))
 import           Text.Blaze.Html5.Attributes as A
 
 import           UI.Data.Assets (Assets (..))
+import qualified UI.HTML.Comp.StateButton as StateButton
+import qualified UI.HTML.Comp.Link as Link
 
--- import Elea.Base (Story (..))
 
-
--- | Story History HTML 
+-- | HTML for Home state
 html :: Assets -> Html
-html _ = do
-  H.div ! A.class_ "comp-story-history" $ do
-    H.div ! classes [cls "arrows"] $ return ()
+html assets = do
+  H.div ! classes ["elea-view"] $ do
+    return ()
 
 -- | HTML helper combinators 
 classes :: [String] -> H.Attribute
-classes l = A.class_ $ H.toValue $ unwords l
+classes = A.class_ . H.toValue . unwords
 
 cls :: String -> String
-cls s = "comp-story-history-" <> s 
+cls s = "elea-view-" <> s 

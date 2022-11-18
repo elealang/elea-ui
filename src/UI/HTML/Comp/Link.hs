@@ -5,7 +5,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 module UI.HTML.Comp.Link (
-    html
+    programHTML
   ) where
 
 
@@ -22,20 +22,19 @@ import           UI.Data.Assets (Assets (..))
 import           UI.Data.Icon (iconSVGWithName)
 
 
-html :: Text -> Text -> Assets -> Html
-html storyName icon assets = do
-  H.div ! classes ["comp-story-link"] $ do
-    H.div ! classes [cls "icon", T.unpack icon] $ do
-      H.preEscapedText $ fromJust $ iconSVGWithName icon assets.iconIndex
-    H.div ! classes [cls "story-name"] $ H.toMarkup storyName
-
-
---html2 :: Text -> Text -> Assets -> Html
---html2 storyName icon assets = do
+-- | Program HTML
+programHTML :: Text -> Text -> Text -> Assets -> Html
+programHTML programId programName icon assets = do
+  H.a ! classes [cls "program"] 
+      ! A.href (H.toValue $ "/elea/program/view/" <> "?effect=" <> programId) $ do
+    H.div ! classes [cls "program-content", T.unpack icon] $ do
+      H.div ! classes [cls "program-icon", T.unpack icon] $
+        H.preEscapedText $ fromJust $ iconSVGWithName icon assets.iconIndex
+      H.div ! classes [cls "program-name"] $ H.toMarkup programName
 
 
 classes :: [String] -> H.Attribute
 classes l = A.class_ $ H.toValue $ unwords l
 
 cls :: String -> String
-cls s = "comp-story-link-" <> s 
+cls s = "comp-link-" <> s 

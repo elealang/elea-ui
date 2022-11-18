@@ -10,20 +10,20 @@ module UI.Config where
 import qualified Data.Yaml as Y
 import Data.Yaml (FromJSON(..), (.:))
 
-import Elea.Server (Server)
+--import Elea.Server (Server)
 
 
 -- | Config
 data Config = Config {
     server :: ServerConfig
-  , elea   :: EleaConfig
+--  , elea   :: EleaConfig
 }
 
 instance FromJSON Config where
   parseJSON (Y.Object v) =
     Config          <$>
-    v .:   "server" <*>
-    v .:   "elea"
+    v .:   "server"
+ --   v .:   "elea"
   parseJSON _ = fail "Expected Object for Config value"
 
 
@@ -42,15 +42,15 @@ instance FromJSON ServerConfig where
 
 
 -- | Elea config
-newtype EleaConfig = EleaConfig {
-  servers :: [Server] 
-}
+--newtype EleaConfig = EleaConfig {
+  --servers :: [Server] 
+--}
 
-instance FromJSON EleaConfig where
-  parseJSON (Y.Object v) =
-    EleaConfig         <$>
-    v .:   "servers"
-  parseJSON _ = fail "Expected Object for Config value"
+--instance FromJSON EleaConfig where
+  --parseJSON (Y.Object v) =
+    --EleaConfig         <$>
+    --v .:   "servers"
+  --parseJSON _ = fail "Expected Object for Config value"
 
 
 -- | Error parsing config

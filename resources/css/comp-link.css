@@ -1,40 +1,46 @@
 
 @import 'vars.css';
 
-.comp-story-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.comp-link-program {
+    display: block;
 
     padding: 4px 8px;
     border: 1px dashed transparent;
     border-radius: 4px;
     margin-top: 0px;
+
+    text-decoration: none;
 }
 
-.comp-story-link:hover  {
+.comp-link-program-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.comp-link-program:hover  {
     cursor: pointer;
     border: 1px dashed #92959F;
 }
 
-.comp-story-link:hover .comp-story-link-story-name {
+.comp-link-program:hover .comp-story-link-story-name {
     color: #434953;
     color: var(--color-blue);
 }
 
-.comp-story-link:hover .comp-story-link-icon svg {
+.comp-link-program:hover .comp-story-link-icon svg {
     fill: #636973;
     fill: var(--color-blue);
 }
 
-.comp-story-link-story-name {
+.comp-link-program-name {
     font-size: 1.1rem;
     font-weight: 700;
     color: #333943;
     color: #3e4159;
 }
 
-.comp-story-link-icon svg {
+.comp-link-program-icon svg {
     width: 2rem;
     height: 2rem;
     fill: #A3A9B3;
@@ -43,42 +49,42 @@
     margin-right: 0.4rem;
 }
 
-.comp-story-link-icon.emoji-learn svg {
+.comp-link-program-icon.emoji-learn svg {
     width: 1.7rem;
     height: 1.7rem;
 }
 
-.comp-story-link-icon.emoji-book svg {
+.comp-link-program-icon.emoji-book svg {
     width: 1.7rem;
     height: 1.7rem;
 }
 
-.comp-story-link-icon.emoji-technology svg {
+.comp-link-program-icon.emoji-technology svg {
     width: 1.9rem;
     height: 1.9rem;
 }
 
-.comp-story-link-icon.emoji-meditation svg {
+.comp-link-program-icon.emoji-meditation svg {
     width: 2.1rem;
     height: 2.1rem;
 }
 
-/*.comp-story-link-icon.emoji-video-game svg {*/
+/*.comp-link-program-icon.emoji-video-game svg {*/
     /*width: 2rem;*/
     /*height: 2rem;*/
 /*}*/
 
-/*.comp-story-link-icon.emoji-religion svg {*/
+/*.comp-link-program-icon.emoji-religion svg {*/
     /*width: 1.9rem;*/
     /*height: 1.9rem;*/
 /*}*/
 
-/*.comp-story-link-icon.emoji-shopping svg {*/
+/*.comp-link-program-icon.emoji-shopping svg {*/
     /*width: 2rem;*/
     /*height: 2rem;*/
 /*}*/
 
-/*.comp-story-link-icon.emoji-thoughts svg {*/
+/*.comp-link-program-icon.emoji-thoughts svg {*/
     /*width: 2rem;*/
     /*height: 2rem;*/
 /*}*/
