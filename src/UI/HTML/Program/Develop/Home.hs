@@ -17,11 +17,13 @@ import           Text.Blaze.Html5.Attributes as A
 import           UI.Data.Assets (Assets (..))
 import qualified UI.HTML.Comp.StateButton as StateButton
 import qualified UI.HTML.Comp.Link as Link
+import           UI.Types.Page (Page)
 
 
 -- | HTML for Home state
-html :: Assets -> Html
-html assets = do
+html :: Page -> Html
+html page = do
+  let assets = page.assets
   H.div ! classes ["develop-home"] $ do
     H.div ! classes [cls "main"] $ do
       H.div ! classes [cls "main-text"] $

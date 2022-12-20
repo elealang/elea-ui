@@ -7,85 +7,88 @@ module UI.Types.Elea.Program.Develop (
   ) where
 
 
+import           Data.Foldable (foldl')
 
-import qualified Elea.Atom.Phenomena as Atm (
-    AbstractionId (..)
-  , State (..)
-  )
-import qualified Elea.Atom.Program as Atm (
-    ProgramIdentity (..)
-  , ProgramAlias (..), ProgramName (..), ProgramDescription (..)
-  )
-import qualified Elea.Object.Phenomena as Obj (
-    Abstraction, newAbstraction
-  , State (..), StateName (..), StateDescription (..)
-  )
-import qualified Elea.Object.Program as Obj (
-    Program (..)
-  , Space (..), newSpace
-  , Time (..)
-  , Agency (..)
-  )
+import qualified Elea
 
 
 -- | Develop program
-develop :: Obj.Program
-develop = Obj.Program {
-    id       = devIdentity
-  , space    = devSpace
-  , time     = devTime
-  , agency   = devAgency
-}
+develop :: Elea.Program
+develop = Elea.initProgram program' initState Elea.noIdentity
+  where
+    program' = Elea.Program' {
+        identity = devIdentity
+      , space    = devSpace
+      , time     = devTime
+      , agency   = devAgency
+    }
+    initState = Elea.Reference {
+      programId     = Elea.ProgramId "develop" 
+    , abstractionId = Elea.AbstractionId "main" 
+    , stateId       = Elea.StateId "home"
+    , arrowId       = Nothing
+    }
+
 
 -- | Identity
 --------------------------------------------------------------------------------
 
-devIdentity :: Atm.ProgramIdentity
-devIdentity = Atm.ProgramIdentity {
-   alias       = Atm.ProgramAlias "develop"
- , name        = Atm.ProgramName "Develop"
- , description = Atm.ProgramDescription "Develop programs"
+devIdentity :: Elea.ProgramIdentity
+devIdentity = Elea.ProgramIdentity {
+   id          = Elea.ProgramId "develop"
+ , name        = Elea.ProgramName "Develop"
+ , description = Elea.ProgramDescription "Develop programs"
 }
 
 -- | Space
 --------------------------------------------------------------------------------
 
-devSpace :: Obj.Space
-devSpace = Obj.newSpace [absView]
+devSpace :: Elea.Space
+devSpace = Elea.newSpace [absView]
 
 
-absView :: Obj.Abstraction
-absView = Obj.newAbstraction _id _states
-  where
-    _id     = Atm.AbstractionId "main"
-    _states = [
-        Obj.State {
-          id          = Atm.State "home"
-        , name        = Obj.StateName "Home"
-        , description = Obj.StateDescription ""
-        }
-      ]
+absView :: Elea.Abstraction
+absView =
+  let states = [
+          Elea.State {
+            id          = Elea.StateId "home"
+          , name        = Just $ Elea.StateName "Home"
+          , description = Just $ Elea.StateDescription ""
+          }
+        ]
+      initAbs = Elea.newAbstraction $ Elea.AbstractionId "main"
+  in  foldl' Elea.abstractionWithState initAbs states
+
+
+    --let stateView = Obj.State {
+            --id          = Def.StateId "view"
+          --, name        = Just $ Obj.StateName "View"
+          --, description = Just $ Obj.StateDescription ""
+          --}
+        --states = [
+            --stateView
+          --]
+        --initAbs = Obj.newAbstraction $ Def.AbstractionId "program"
+        --abs = foldl' Obj.abstractionWithState initAbs states
+    --in  abs {
+            --Obj.name        = Just $ Def.AbstractionName "Program"
+          --, Obj.description = Nothing
+        --}
 
 -- | Time
 --------------------------------------------------------------------------------
 
-devTime :: Obj.Time
-devTime = Obj.Time {
-    types     = []
-  , computers = []
-}
+devTime :: Elea.Time
+devTime = Elea.newTime
 
 -- | Agency
 --------------------------------------------------------------------------------
     
-devAgency :: Obj.Agency
-devAgency = Obj.Agency {
-    agents  = []
-  , stories = []
-  , events  = []
+devAgency :: Elea.Agency
+devAgency = Elea.Agency {
+    agents = []
+  , epic   = Elea.Epic Elea.existence []
 }
-
-
 
 
 -- eventually elea.dev could be a generic computer based 

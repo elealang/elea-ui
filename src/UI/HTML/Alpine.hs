@@ -11,6 +11,7 @@ module UI.HTML.Alpine (
   , show_, model
   -- Bindings
   , text, value
+  , depClass
   -- Events
   , onClick, onClickOutside
   , onEnter, onLeave
@@ -62,3 +63,6 @@ onEnter js = customAttribute "@pointerenter" $ toValue js
 
 onLeave :: Text -> Attribute
 onLeave js = customAttribute "@pointerleave" $ toValue js  
+
+depClass :: Text -> Attribute
+depClass js = customAttribute ":class" $ toValue js  

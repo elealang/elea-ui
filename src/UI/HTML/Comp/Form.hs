@@ -53,6 +53,9 @@ fieldHtml assets (Basic field                 ) =
     FieldTypeAppId     -> appIdHTML field assets
     FieldTypeDivider   -> dividerHTML
 fieldHtml _      (Choice fieldChoice) = choiceHTML fieldChoice
+fieldHtml assets (Line   fields     ) = 
+  H.div ! A.class_ "comp-form-line" $ 
+    forM_ fields (fieldHtml assets)
 
 
 -- | Text input field HTML
@@ -67,21 +70,26 @@ textHtml field = do
           input'  = case field.isModel of
                       True  -> input ! X.model field.markupId
                       False -> input
-          input'' = case field.valueFunction of
-                      Just fn -> input ! X.text fn
-                      Nothing -> input'
-      in  input'
+          input''  = case field.defaultValue of
+                       Just t  -> input ! A.value (H.toValue t)
+                       Nothing -> input'
+          --input'' = case field.valueFunction of
+                      --Just fn -> input ! X.text fn
+                      --Nothing -> input'
+      in  input''
 
 
 -- | Text Area field HTML
 paragraphHtml :: FieldBasic -> Html
 paragraphHtml field = do
-  H.div ! A.class_ "comp-form-field" $ do
-    H.label ! A.for (toValue field.markupId) $ 
-      toMarkup field.label
+  H.div ! A.class_ "comp-form-field-text-area comp-form-field" $ do
     H.textarea ! A.type_ (toValue field.markupId) 
                ! A.name (toValue field.markupId) $
-      return ()
+      case field.defaultValue of
+        Just t  -> H.toMarkup t
+        Nothing -> H.toMarkup ("nohing" :: Text)
+    H.label ! A.for (toValue field.markupId) $ 
+      toMarkup field.label
 
 
 -- | Application ID field HTML

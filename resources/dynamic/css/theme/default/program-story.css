@@ -1,0 +1,61 @@
+
+@import 'vars.css';
+
+
+.comp-program-story {
+
+    width: 100%;
+    height: 100%;
+
+    overflow-y: scroll;
+
+    background: #edf3ff;
+    background: #e7ecfa;
+    background: var(--color-background-2);
+    background: white;
+}
+
+.comp-program-story-state {
+    height: 36px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: white;
+    font-weight: 500;
+}
+
+
+.comp-program-story-state-abstraction {
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+
+    margin-right: 1rem;
+    margin-right: 1px;
+    background: var(--color-pink);
+    background: #f94dff;
+    padding: 0 var(--comp-padding-horz);
+}
+
+
+.comp-program-story-state-state {
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 var(--comp-padding-horz);
+    margin-right: 1rem;
+    margin-right: 2px;
+    background: var(--color-pink);
+    background: #f94dff;
+}

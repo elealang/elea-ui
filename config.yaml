@@ -1,6 +1,6 @@
 server:
   port: 9000
-  icons_dir: assets/icons/
+  icons_dir: resources/static/icons/
 elea:
   servers:
     - name: Browser Local Storage

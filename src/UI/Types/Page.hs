@@ -23,33 +23,38 @@ import           Text.Blaze.Html (Html)
 import           UI.Data.Assets (Assets (..))
 import           UI.Types.Component
 
-import           Elea.Object.Program (Program, ProgramState)
+import qualified Elea
 
 
 data Page = Page {
-    assets          :: Assets
-  , program         :: Program
-  , programState    :: ProgramState 
-  , contextPaneOpen :: Bool
+    assets            :: Assets
+  , program           :: Elea.Program
+  , historyPaneActive :: Bool
+  , previewPaneActive :: Bool
+  , eleaPaneActive    :: Bool
 }
 
-new :: Assets -> Program -> ProgramState -> Page
-new assets_ prog progState = Page {
-    assets          = assets_
-  , program         = prog
-  , programState    = progState
-  , contextPaneOpen = True
-
+new :: Assets -> Elea.Program -> Page
+new assets_ prog = Page {
+    assets             = assets_
+  , program            = prog
+  , historyPaneActive  = False
+  , previewPaneActive  = False
+  , eleaPaneActive     = False
 }
 
 instance Component Page PageComponentData where
   toComponentData page = PageComponentData {
-      contextPaneOpen = page.contextPaneOpen
+      historyPaneActive = page.historyPaneActive
+    , previewPaneActive = page.previewPaneActive
+    , eleaPaneActive    = page.eleaPaneActive
   }
 
 
-newtype PageComponentData = PageComponentData {
-    contextPaneOpen :: Bool
+data PageComponentData = PageComponentData {
+    historyPaneActive :: Bool
+  , previewPaneActive :: Bool
+  , eleaPaneActive    :: Bool
 } deriving (Eq, Generic, Show)
 
 instance ToJSON PageComponentData

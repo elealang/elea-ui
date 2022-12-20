@@ -31,9 +31,12 @@ api = Proxy
 
 server :: Config -> Assets -> Server API
 server config assets =  
-        serveDirectoryWebApp "resources/"
-   :<|> Handler.pageHome
-   :<|> Handler.pageProgram assets
+        serveDirectoryWebApp "resources/dynamic/"
+   :<|> Handler.root
+   :<|> Handler.programDevelopMainHome assets
+   :<|> Handler.programEleaProgramViewBasic assets
+   :<|> Handler.viewEleaProgramViewBasicProgramObjects assets
+   :<|> Handler.viewEleaProgramViewBasicProgramObject assets
 
 
 app :: Config -> Assets -> Application

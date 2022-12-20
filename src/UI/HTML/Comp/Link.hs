@@ -26,7 +26,7 @@ import           UI.Data.Icon (iconSVGWithName)
 programHTML :: Text -> Text -> Text -> Assets -> Html
 programHTML programId programName icon assets = do
   H.a ! classes [cls "program"] 
-      ! A.href (H.toValue $ "/elea/program/view/" <> "?effect=" <> programId) $ do
+      ! A.href (H.toValue $ "/program/elea/program/view-basic/" <> "?premise=" <> programId) $ do
     H.div ! classes [cls "program-content", T.unpack icon] $ do
       H.div ! classes [cls "program-icon", T.unpack icon] $
         H.preEscapedText $ fromJust $ iconSVGWithName icon assets.iconIndex

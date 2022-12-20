@@ -56,13 +56,13 @@ executable elea-ui
   -- Modules included in this executable, other than Main.
   other-modules: 	UI.API
 			UI.Config
+			UI.Temp
 			UI.Data.Assets
 			UI.Data.Icon
 			UI.Handler
 			UI.HTML.Alpine
 			UI.HTML.HTMX
 			UI.HTML.Document
-			UI.HTML.Page
 			UI.HTML.Comp.ArrowEditor
 			UI.HTML.Comp.ComputerChooser
 			UI.HTML.Comp.Form
@@ -74,12 +74,13 @@ executable elea-ui
 			UI.HTML.Comp.StateButton
 			UI.HTML.Comp.StoryBrowser
 			UI.HTML.Comp.StoryEditor
-			UI.HTML.Comp.StoryHistory
-			UI.HTML.Comp.ViewSwitcher
-			UI.HTML.Program.Develop
+			UI.HTML.Comp.ProgramSwitcher
+			UI.HTML.Comp.ProgramStory
+			UI.HTML.Program.Page
 			UI.HTML.Program.Develop.Home
-			UI.HTML.Program.Elea
-			UI.HTML.Program.Elea.View
+                        UI.HTML.Program.Elea.ViewBasic
+                        UI.HTML.Program.Elea.ViewBasic.FilterPane
+                        UI.HTML.Program.Elea.ViewBasic.ObjectPane
 			UI.Elea.Computer.LocalStorage
 			UI.Server
 			UI.Types.Component
@@ -109,6 +110,8 @@ executable elea-ui
 			servant-server >= 0.9.1,
 			servant-blaze >= 0.9.1,
 			text,
+                        unordered-containers,
+                        utf8-string,
 			wai,
 			warp >= 3.3.13,
 		    	yaml >= 0.11.5.0

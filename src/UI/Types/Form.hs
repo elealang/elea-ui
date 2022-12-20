@@ -14,7 +14,8 @@ module UI.Types.Form (
   , FieldBasic (..), FieldChoice (..)
   , FieldType (..)
   -- Constructors
-  , textField, paragraphField
+  , textField, textFieldWithDefault
+  , paragraphField, paragraphFieldWithDefault
   , divider
   ) where
 
@@ -37,10 +38,12 @@ data Form = Form {
 
 instance ToJSON Form where
   toJSON (Form fields) = 
-    let rec (Basic  field                ) = 
+    let rec (Basic  field                  ) = 
           [(fromText field.markupId) .= T.empty]
         rec (Choice (FieldChoice _ choices)) =
           (\c -> (fromText $ fst c) .= T.empty) <$> choices
+        rec (Line   fields                 ) =
+          fields >>= rec
     in  object $ L.concat $ (rec <$> fields)
 
 
@@ -48,6 +51,7 @@ instance ToJSON Form where
 data Field = 
     Basic FieldBasic
   | Choice FieldChoice
+  | Line [Field]
 
 
 data FieldBasic = FieldBasic {
@@ -70,11 +74,31 @@ textField label markupId = FieldBasic {
   , valueFunction = Nothing
 }
 
+textFieldWithDefault :: Text -> Text -> Text -> FieldBasic
+textFieldWithDefault label markupId defaultValue = FieldBasic {
+    label         = label
+  , defaultValue  = Just defaultValue
+  , fieldType     = FieldTypeText
+  , markupId      = markupId
+  , isModel       = False
+  , valueFunction = Nothing
+}
+
 
 paragraphField :: Text -> Text -> FieldBasic
 paragraphField label markupId = FieldBasic {
     label         = label
   , defaultValue  = Nothing
+  , fieldType     = FieldTypeParagraph
+  , markupId      = markupId
+  , isModel       = False
+  , valueFunction = Nothing
+}
+
+paragraphFieldWithDefault :: Text -> Text -> Text -> FieldBasic
+paragraphFieldWithDefault label markupId defaultValue = FieldBasic {
+    label         = label
+  , defaultValue  = Just defaultValue
   , fieldType     = FieldTypeParagraph
   , markupId      = markupId
   , isModel       = False
